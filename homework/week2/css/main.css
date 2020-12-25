@@ -1,0 +1,38 @@
+h1 {
+  font-size: 36px;
+}
+
+img {
+  padding-left: 72px;
+}
+
+figcaption {
+  padding-left: 72px;
+  font-size: large;
+  font-weight: 900;
+}
+
+caption {
+  font-weight: bolder;
+}
+
+form {
+  width: 400px;
+}
+
+fieldset {
+  border: groove 2px gray;
+}
+
+legend {
+  font-weight: bolder;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  border: 1.5px solid gray;
+  border-radius: 3px;
+}
