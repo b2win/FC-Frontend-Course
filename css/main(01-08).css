@@ -1,0 +1,34 @@
+.container {
+  border: 4px solid;
+  display: flex;
+}
+
+.container .item {
+  height: 100px;
+  background: tomato;
+  border: 4px dashed red;
+  border-radius: 10px;
+}
+
+.item1 {
+  flex-grow: 1;
+}
+
+.item2 {
+  flex-grow: 3;
+}
+
+.item3 {
+  width: 100px;
+}
+
+.container1 {
+  display: inline-grid;
+  width: 400px;
+  height: 300px;
+  border: 4px solid lightgray;
+}
+
+.items {
+  border: 2px dashed red;
+}
