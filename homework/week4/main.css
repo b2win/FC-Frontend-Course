@@ -1,0 +1,71 @@
+html {
+  font-size: 10px;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.4rem;
+  line-height: normal;
+  box-sizing: border-box;
+}
+.main {
+  width: 980px;
+  padding: 20px;
+  margin: 0 auto;
+  background: lightgray;
+}
+.main-heading {
+  text-align: center;
+  font-size: 2rem;
+}
+section {
+  margin: 20px 0;
+  background: lightsteelblue;
+}
+.heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: blue;
+}
+
+/* 문제 1 */
+.news-link {
+  background: teal;
+  /* width: 50%; */
+  margin-top: 10px;
+  padding-top: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+.news-item {
+  background: yellowgreen;
+  height: 100px;
+  padding-left: 130px;
+}
+.news-item-heading {
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.news-item-brief {
+  margin-top: 10px;
+}
+.news-item-thumbnail {
+  width: 120px;
+  align-items: initial;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 문제 2 */
+
+/* 문제 3 */
+.flex-container {
+  background: yellowgreen;
+}
+.flex-item {
+  background: tomato;
+  border: 2px dashed red;
+}
+
+/* 문제 4 */
