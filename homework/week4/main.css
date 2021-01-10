@@ -35,7 +35,8 @@ section {
   padding: 10px;
   text-decoration: none;
   color: inherit;
-  display: block;
+  display: inline-block;
+  box-sizing: border-box;
 }
 .news-item {
   background: yellowgreen;
@@ -61,13 +62,14 @@ section {
 
 /* 문제 2 */
 .float-container {
-  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
 }
 
 .float-item {
   width: 50%;
-
+  float: left;
 }
+
 
 .news-link2 {
   width: 100%;
@@ -102,7 +104,7 @@ section {
   margin: 10px;
   background-image: url(./smile.jpg);
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: left bottom;
   animation: move 2s infinite alternate;
   animation-timing-function: linear;
