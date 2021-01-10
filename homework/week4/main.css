@@ -30,16 +30,18 @@ section {
 /* 문제 1 */
 .news-link {
   background: teal;
-  /* width: 50%; */
+  width: 50%;
   margin-top: 10px;
-  padding-top: 10px;
+  padding: 10px;
   text-decoration: none;
   color: inherit;
+  display: inline-block;
 }
 .news-item {
   background: yellowgreen;
   height: 100px;
   padding-left: 130px;
+  
 }
 .news-item-heading {
   font-weight: 700;
@@ -49,23 +51,46 @@ section {
 }
 .news-item-brief {
   margin-top: 10px;
+
 }
 .news-item-thumbnail {
   width: 120px;
-  align-items: initial;
-  justify-content: center;
-  align-items: center;
+
 }
 
 /* 문제 2 */
+.float-container {
+  
+}
+
+.float-item {
+  /* width: 50%; */
+}
+
+.news-link2 {
+
+}
 
 /* 문제 3 */
 .flex-container {
   background: yellowgreen;
+  height: 600px;
+  display: flex;
+  max-width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
 }
 .flex-item {
   background: tomato;
   border: 2px dashed red;
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 문제 4 */
