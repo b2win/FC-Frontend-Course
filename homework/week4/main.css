@@ -35,13 +35,13 @@ section {
   padding: 10px;
   text-decoration: none;
   color: inherit;
-  display: inline-block;
+  display: block;
 }
 .news-item {
   background: yellowgreen;
   height: 100px;
   padding-left: 130px;
-  
+  position: relative;
 }
 .news-item-heading {
   font-weight: 700;
@@ -51,24 +51,26 @@ section {
 }
 .news-item-brief {
   margin-top: 10px;
-
 }
 .news-item-thumbnail {
   width: 120px;
-
+  position: absolute;
+  left: 0;
+  top: 10px;
 }
 
 /* 문제 2 */
 .float-container {
-  
+  grid-template-columns: 1fr 1fr;
 }
 
 .float-item {
-  /* width: 50%; */
+  width: 50%;
+
 }
 
 .news-link2 {
-
+  width: 100%;
 }
 
 /* 문제 3 */
@@ -94,3 +96,47 @@ section {
 }
 
 /* 문제 4 */
+.smile-face {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  background-image: url(./smile.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left bottom;
+  animation: move 2s infinite alternate;
+  animation-timing-function: linear;
+  animation-delay: 1s;
+}
+
+.smile-face:hover {
+  animation-play-state: paused;
+}
+
+@keyframes move {
+
+  0% {
+    transform: translate(0);
+    transform-origin: bottom 50%;
+  }
+
+  25%{
+    transform: translate(200px, 0) rotate(90deg);
+    transform-origin: bottom 50%;
+  }
+
+  50% {
+    transform: translate(400px, 0) rotate(180deg);
+    transform-origin: top 50%;
+  }
+
+  75% {
+    transform: translate(600px, 0) rotate(270deg);
+    transform-origin: bottom 50%;
+  }
+  100% {
+    transform: translate(800px, 0) rotate(360deg);
+    transform-origin: bottom 50%;
+  }
+
+}
