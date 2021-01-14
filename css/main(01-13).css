@@ -1,11 +1,33 @@
-.container {
-  width: 300px;
-  height: 200px;
-  display: grid;
-  grid-template-rows: 100px 100px; /* 명시적 2개 행 정의 */
-  grid-template-columns: 150px 150px; /* 명시적 2개 열 정의 */
-  grid-auto-rows: 100px; /* 그 외(암시적) 행의 크기 정의 */
+* {
+  list-style: none;
 }
-.item:nth-child(3) {
-  grid-row: 3 / 4;
+
+ul {
+  background-color: lightgray;
+  width: 300px;
+  padding: 0;
+  /* 코드 작성 */
+}
+
+ul li {
+  background: #444;
+  color: #fff;
+  /* 코드 작성 */
+  display: flex;
+  justify-content: center;
+  border-top: 10px solid lightgray;
+  border-bottom: 10px solid lightgray;
+}
+
+ul li:nth-child(2) {
+  background: coral;
+}
+
+ul li:nth-child(4) {
+  background: green;
+}
+
+ul li:first-child {
+  background-color: #444;
+  margin-top: 20px;
 }

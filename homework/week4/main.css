@@ -109,13 +109,15 @@ section {
   animation: move 2s infinite alternate;
   animation-timing-function: linear;
   animation-delay: 1s;
+  /* border-radius: 50%; */
+
 }
 
 .smile-face:hover {
   animation-play-state: paused;
 }
 
-@keyframes move {
+/* @keyframes move {
 
   0% {
     transform: translate(0);
@@ -141,4 +143,30 @@ section {
     transform-origin: bottom 50%;
   }
 
+} */
+
+@keyframes move {
+  0% {
+    transform: translate(0);
+    transform-origin: bottom 50%;
+  }
+
+  25% {
+    transform: translate(200px, 0) rotate(90deg);
+    transform-origin: bottom 50%;
+  }
+
+  50% {
+    transform: translate(400px, 0) rotate(180deg);
+    transform-origin: top 50%;
+  }
+
+  75% {
+    transform: translate(600px, 0) rotate(270deg);
+    transform-origin: bottom 50%;
+  }
+  100% {
+    transform: translate(800px, 0) rotate(360deg);
+    transform-origin: bottom 50%;
+  }
 }

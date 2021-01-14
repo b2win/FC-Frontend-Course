@@ -1,0 +1,41 @@
+.container {
+  width: 400px;
+  /* 코드 작성 */
+  height: 400px;
+  font-weight: 900;
+}
+
+.item {
+  width: 100px;
+  height: 100px;
+  /* 코드 작성 */
+  float: left;
+}
+
+.item:nth-child(1) {
+  background-color: pink;
+  /* 코드 작성 */
+  width: 200px;
+  height: 200px;
+  float: right;
+}
+
+.item:nth-child(2) {
+  background-color: yellow;
+}
+
+.item:nth-child(3) {
+  background-color: lightGreen;
+}
+
+.item:nth-child(4) {
+  background-color: skyBlue;
+  /* 코드 작성 */
+  /* 속성 추가 없이 완성되어 공란입니다. */
+}
+
+.item:nth-child(5) {
+  background-color: lightGrey;
+  /* 코드 작성 */
+  /* 속성 추가 없이 완성되어 공란입니다. */
+}
