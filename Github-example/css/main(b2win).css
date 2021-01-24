@@ -1,3 +1,4 @@
+@charset "UTF-8";
 
 /* COMMON */
 .body__container {
@@ -36,7 +37,7 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.07);
+  background: rgba(0, 0, 0, .07);
 }
 
 .btn.btn--primary {
@@ -54,13 +55,13 @@ a {
   border-radius: 5px;
   box-sizing: border-box;
   outline: none;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .075);
   font-size: 16px;
 }
 
 .input--text:focus {
   border-color: #51a7e8;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 0 5px rgba(81, 167, 232, 0.5);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .075), 0 0 5px rgba(81, 167, 232, .5);
 }
 
 .input--text::-webkit-input-placeholder {color: #cacaca;}
@@ -119,13 +120,14 @@ a {
 /* HEADER */
 
 header {
-  border-bottom: 1px solid rgba(0, 0, 0, .7);
-  box-shadow: 0 0 5px rgba(0 0 0 .75, green, blue, alpha);
+  border-bottom: 1px solid rgba(0, 0, 0, .75);
+  box-shadow: 0 0 5px rgba(0, 0, 0, .75);
   background: #fff;
 }
 
 header .inner {
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  height: 78px;
 }
 
 header .menu-group {
@@ -166,6 +168,8 @@ header .main-menu li a:hover {
 
 header .sign-group {
   display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 header .btn-group {
@@ -248,6 +252,7 @@ header .sub-menu li a:hover {
 
 /* VISUAL */
 .section--visual {
+  position: relative;
   background-image: url("../img/bg.jpg");
   background-repeat: no-repeat;
   background-position: bottom left;
@@ -283,7 +288,6 @@ header .sub-menu li a:hover {
 
 .section--visual .summary__description {
   color: #fff;
-  font-size: 34px;
   text-shadow:  0 1px 1px rgba(0, 0, 0, .25), 
                 0 1px 25px rgba(0, 0, 0, .75);
 }
@@ -311,6 +315,7 @@ header .sub-menu li a:hover {
   margin-top: 5px;
   color: rgba(255, 255, 255, .6);
   text-align: center;
+  line-height: 1.5;
 }
 
 #sign-form [type="submit"] {
@@ -387,8 +392,7 @@ header .sub-menu li a:hover {
   border-right: 1px solid #e5e5e5;
   box-sizing: border-box;
   float: left;
-  width: 25%;
-  box-sizing: border-box;
+  max-width: 25%;
 }
 
 
@@ -452,6 +456,7 @@ header .sub-menu li a:hover {
   border: 1px solid #e5e5e5;
   border-radius: 6px;
   box-sizing: border-box;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
 }
 
 .section--pricing .card .cell {
@@ -462,12 +467,12 @@ header .sub-menu li a:hover {
 }
 
 
-.section--pricing .card .cell .cell1 .btn {
+.section--pricing .card .cell1 .btn {
   height: 50px;
   font-size: 16px;
 }
 
-.section--pricing .card .cell .cell2 {
+.section--pricing .card .cell2 {
   font-size: 22px;
   font-weight: 300;
   line-height: 1.5;
@@ -494,6 +499,10 @@ footer .site-links li {
   font-size: 12px;
   margin-right: 10px;
   color: #767676;
+}
+
+footer .site-links li:last-child {
+  margin-right: 0;
 }
 
 footer .site-links li a {

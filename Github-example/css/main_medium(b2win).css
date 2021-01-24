@@ -3,33 +3,42 @@ header.section .inner {
   height: auto;
   padding: 0 20px;
 }
+
 header .menu-group,
 header .sign-group {
   float: none;
 }
+
 header .menu-group {
   display: block;
 }
+
 header .logo {
   padding: 12px 0;
 }
+
 header .main-menu {
   display: block;
   margin-bottom: 10px;
 }
+
 header .main-menu li {
   border-top: 1px solid #e5e5e5;
 }
+
 header .main-menu li a {
   padding: 16px 0;
 }
+
 header .sign-group {
   display: block;
   padding: 10px 0 20px;
 }
+
 header .btn-group {
   display: block;
 }
+
 header .btn-group .btn {
   justify-content: center;
 }
@@ -37,29 +46,36 @@ header .btn-group .sign-in {
   margin-right: 0;
   margin-bottom: 12px;
 }
+
 #search-form {
   margin-top: 12px;
   margin-right: 0;
 }
+
 #search {
   width: 100%;
   height: 42px;
   text-align: center;
 }
+
 header .sub-menu {
   margin-top: 12px;
   margin-right: 0;
   justify-content: center;
 }
+
 header .toggle {
   display: none;
 }
+
 header .toggle.on {
   display: block;
 }
+
 #toggle-btn {
   display: block;
 }
+
 
 /* VISUAL */
 
