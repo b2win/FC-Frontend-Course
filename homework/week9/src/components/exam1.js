@@ -17,6 +17,17 @@ function Exam1() {
 
   // 2. onChange 함수 구현하기
 
+  const { name, nickname, age } = user;
+
+  const onChange = (e) => {
+    const { name, value } = e.target;
+
+    setUser({
+      ...user,
+      [name]: value
+    });
+  };
+
   return (
     <>
       <div className="container">
