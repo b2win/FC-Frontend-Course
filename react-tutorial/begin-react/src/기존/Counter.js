@@ -2,15 +2,13 @@ import React, { useReducer } from 'react';
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'INCREMENT':
+    case 'INCREMENT' :
       return state + 1;
-    case 'DECREMENT':
+    case 'DECREMENT' :
       return state - 1;
     default:
       throw new Error('Unhandled action');
   }
-
-
 }
 
 function Counter() {
@@ -22,12 +20,13 @@ function Counter() {
       type: 'INCREMENT'
     })
   };
+
   const onDecrease = () => {
     dispatch({
       type: 'DECREMENT'
     })
-  };
-  
+  }
+
   return (
     <div>
       <h1>{number}</h1>
