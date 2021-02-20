@@ -19,5 +19,8 @@
   "homepage": "https://github.com/b2win/FC-Frontend-Course#readme",
   "devDependencies": {
     "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
   }
 }
