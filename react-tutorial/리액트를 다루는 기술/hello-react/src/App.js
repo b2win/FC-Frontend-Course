@@ -1,12 +1,14 @@
 import './App.css';
-import React, { Component } from 'react';
+import React from 'react';
 import ScrollBox from './ScrollBox';
 import EventPracticeAgain from './EventPracticeAgain';
 import EventPracticeAgain함수 from './EventPracticeAgain함수형';
+import PropsComponent from './PropsComponent';
+import Wrapper from './Wrapper';
 
 
-class App extends Component {
-  render() {
+function App() {
+
     return(
     //   <div>
     //     <ScrollBox ref={(ref) => this.scrollBox=ref} />
@@ -17,10 +19,13 @@ class App extends Component {
     //       맨 밑으로
     //     </button>
     // </div>
-    <EventPracticeAgain함수 />
+      <Wrapper>
+        <PropsComponent name="b2win" fontSize='50px' age= {10} color='aqua' isSpecial />
+        <PropsComponent name="b2win" fontSize='50px' age= {30} />
+      </Wrapper>
     );
   }
-}
+
 
 
 export default App;
