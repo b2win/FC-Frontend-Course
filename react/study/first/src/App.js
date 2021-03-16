@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import VendingMachine from "./VendingMachine";
+import { useState } from "react";
+import InputSample from "./InputSample";
+import Say from "./Say";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  // const [coin, setCoin] = useState("");
+
+  // const insertCoin = (e) => {
+  //   if (e.target.value > 0 && e.target.value <= 1000) {
+  //     setCoin(e.target.value);
+  //     return;
+  //   }
+  // };
+
+  // return (
+  //   <>
+  //     <p>투입 금액</p>
+  //     <input placeholder="금액입력" value={coin} onChange={insertCoin} />
+  //     <VendingMachine coin={coin} />
+  //   </>
+  // );
+  return <Say />;
 }
 
 export default App;
