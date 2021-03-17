@@ -1,38 +1,43 @@
-import "./App.css";
 import React, { useState } from "react";
-import VendingMachine from "./VendingMachine";
+import Machine from "./Machine";
 
 function App() {
   const [coin, setCoin] = useState("");
 
   const put = (e) => {
-    setCoin(e.target.value);
+    if (e.target.value >= 0 && e.target.value <= 1000) {
+      setCoin(e.target.value);
+      alert(e.target.value + "원이 투입되었습니다!");
+    }
   };
+
+  // const insertMoney = (e) => {
+  //   if (e.target.value >= 0 && e.target.value <= 1000) {
+  //     setCoin(e.target.value);
+  //   }
+  // };
 
   return (
     <>
-      <p>Money</p>
-      <button onClick={put} value={10}>
+      <p>돈</p>
+      <button value={10} onClick={put}>
         10원
       </button>
-      <button onClick={put} value={50}>
+      <button value={50} onClick={put}>
         50원
       </button>
-      <button onClick={put} value={100}>
+      <button value={100} onClick={put}>
         100원
       </button>
-      <button onClick={put} value={500}>
+      <button value={500} onClick={put}>
         500원
       </button>
-      <button onClick={put} value={1000}>
+      <button value={1000} onClick={put}>
         1,000원
       </button>
-      <button onClick={put} value={0}>
-        반환
-      </button>
       <p>투입 금액</p>
-      <input placeholder="금액 입력" value={coin} />
-      <VendingMachine coin={coin} />
+      <input placeholder="금액 입력" value={coin} onChange={put} readOnly />
+      <Machine coin={coin} />
     </>
   );
 }

@@ -1,0 +1,18 @@
+#root {
+  height: 500px;
+  width: 500px;
+  background-color: linen;
+  padding: 1rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+button {
+  margin: 10px;
+}
+
+p {
+  margin-bottom: 0;
+}
