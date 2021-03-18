@@ -1,31 +1,63 @@
-import './App.css';
-import React from 'react';
-import ScrollBox from './ScrollBox';
-import EventPracticeAgain from './EventPracticeAgain';
-import EventPracticeAgain함수 from './EventPracticeAgain함수형';
-import PropsComponent from './PropsComponent';
-import Wrapper from './Wrapper';
-
+import "./App.css";
+import React, { useState, useRef } from "react";
+import IterationSample from "./IterationSample";
+import CreateUser from "./CreateUser";
 
 function App() {
+  const [inputs, setInputs] = useState({
+    username: "",
+    email: "",
+  });
 
-    return(
-    //   <div>
-    //     <ScrollBox ref={(ref) => this.scrollBox=ref} />
-    //     <button onClick={() => this.scrollBox.scrollToTop()}>
-    //       맨 위로
-    //     </button>
-    //     <button onClick={() => this.scrollBox.scrollToBottom()}>
-    //       맨 밑으로
-    //     </button>
-    // </div>
-      <Wrapper>
-        <PropsComponent name="b2win" fontSize='50px' age= {10} color='aqua' isSpecial />
-        <PropsComponent name="b2win" fontSize='50px' age= {30} />
-      </Wrapper>
-    );
-  }
+  const { username, email } = inputs;
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
+  };
 
+  const [users, setUsers] = useState([
+    {
+      id: 1,
+      username: "velopert",
+      email: "public.velopert@gmail.com",
+    },
+    {
+      id: 2,
+      username: "tester",
+      email: `tester@example.com`,
+    },
+    {
+      id: 3,
+      username: "liz",
+      email: "liz@example.com",
+    },
+  ]);
 
+  const nextId = useRef(4);
+
+  const onCreate = () => {
+    setInputs({
+      username: "",
+      email: "",
+    });
+    console.log(nextId.current);
+    nextId.current += 1;
+  };
+
+  return (
+    <>
+      <CreateUser
+        username={username}
+        email={email}
+        onChange={onChange}
+        onCreate={onCreate}
+      />
+      {/* <UserList users={users} /> */}
+    </>
+  );
+}
 
 export default App;
