@@ -9,8 +9,12 @@ h1 {
   text-align: center;
 }
 
+span {
+  width: 100px;
+}
+
 button {
-  margin: 10px;
+  margin: 10px 5px;
 }
 
 p {

@@ -32,6 +32,7 @@ function App() {
           초기화
         </button>
       </div>
+      <span>금액 선택 : </span>
       <button value={1000} onClick={select}>
         1000원
       </button>
