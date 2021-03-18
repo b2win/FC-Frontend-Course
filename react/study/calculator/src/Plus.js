@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 function Plus({ number }) {
-  const [display, setDisplay] = useState(0);
-  const [answer, setAnswer] = useState(0);
+  const [display, setDisplay] = useState("");
+  const [answer, setAnswer] = useState("");
 
   const plus = (e) => {
     if (e.target.value >= 0 && e.target.value <= 10) {
@@ -12,7 +12,7 @@ function Plus({ number }) {
   };
 
   const calculate = () => {
-    setAnswer(number * 1 + display * 1);
+    setAnswer(Number(number) + Number(display));
   };
 
   return (

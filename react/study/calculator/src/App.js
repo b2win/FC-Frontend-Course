@@ -3,10 +3,11 @@ import Plus from "./Plus";
 import Minus from "./Minus";
 import Multiple from "./Multiple";
 import Divide from "./Divide";
+import Calculator from "./Calculator";
 import "./App.css";
 
 function App() {
-  const [number, setNumber] = useState(0);
+  const [number, setNumber] = useState("");
 
   const original = (e) => {
     if (e.target.value >= 0 && e.target.value <= 1000) {
@@ -27,14 +28,15 @@ function App() {
         />
       </div>
       <br />
-      <Plus number={number} />
+      {/* <Plus number={number} />
       <br />
       <Minus number={number} />
       <br />
       <Multiple number={number} />
       <br />
 
-      <Divide number={number} />
+      <Divide number={number} /> */}
+      <Calculator number={number} />
     </>
   );
 }
