@@ -6,18 +6,20 @@ function App() {
   const [amount, setAmount] = useState("");
   const [custom, setCustom] = useState("");
 
-  const select = (e) => {
-    setAmount(e.target.value);
-  };
-
   const put = (e) => {
     if (e.target.value >= 0 && e.target.value <= 100000) {
       setCustom(e.target.value);
     }
   };
 
-  const clear = () => {
-    0;
+  const select = (e) => {
+    setAmount(e.target.value);
+    setCustom(e.target.value);
+  };
+
+  const clear = (e) => {
+    setCustom(e.target.value);
+    setAmount(e.target.value);
   };
 
   return (
@@ -26,6 +28,9 @@ function App() {
       <div>
         <span>금액 직접입력 : </span>
         <input placeholder="직접입력" value={custom} onChange={put} />
+        <button onDoubleClick={clear} value={""}>
+          초기화
+        </button>
       </div>
       <button value={1000} onClick={select}>
         1000원
@@ -41,9 +46,6 @@ function App() {
       </button>
       <button value={""} onClick={select}>
         정정
-      </button>
-      <button onDoubleClick={clear} value={}>
-        초기화
       </button>
       <Atm amount={amount} custom={custom} />
     </>
