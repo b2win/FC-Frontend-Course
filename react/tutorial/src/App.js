@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useState } from "react";
 import VendingMachine from "./VendingMachine";
 import Sample from "./Sample";
+import Fast from "./Fast";
 
 function App() {
   const [insertCoin, setInsertCoin] = useState("");
@@ -19,6 +20,7 @@ function App() {
       </div>
       <VendingMachine money={insertCoin} /> */}
       <Sample />
+      <Fast />
     </>
   );
 }

@@ -16,12 +16,16 @@ function Sample() {
     setList(e.target.value);
   };
 
+  console.log(names.text);
+  console.log(list);
+
   const add = () => {
     if (list === "") {
       alert("입력해주세요!");
       return;
     }
     if (list === names.text) {
+      // 중복 알럿 아직 해결 못함!!
       alert("중복입니다!");
       return;
     } else {
@@ -40,6 +44,16 @@ function Sample() {
     setNames(nextNames);
   };
 
+  const deleteFirst = () => {
+    names.shift();
+    setNextId(nextId - 1);
+  };
+
+  const deleteLast = () => {
+    names.pop();
+    setNextId(nextId - 1);
+  };
+
   const namesList = names.map((name) => (
     <li key={name.id} onDoubleClick={() => onRemove(name.id)}>
       {name.text}
@@ -54,8 +68,8 @@ function Sample() {
         value={list}
       />
       <button onClick={add}>추가</button>
-      {/* <button onClick={deleteFirst}>맨처음 삭제</button>
-      <button>마지막 삭제</button> */}
+      <button onClick={deleteFirst}>맨처음 삭제</button>
+      <button onClick={deleteLast}>마지막 삭제</button>
       <ul>{namesList}</ul>
     </>
   );
