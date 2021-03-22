@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState } from "react";
+import VendingMachine from "./VendingMachine";
+import Sample from "./Sample";
 
 function App() {
+  const [insertCoin, setInsertCoin] = useState("");
+  const onType = (e) => {
+    if (e.target.value >= 0 && e.target.value <= 1000) {
+      setInsertCoin(e.target.value);
+    }
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* <h1>자판기</h1>
+      <div>
+        <p>투입금액</p>
+        <input placeholder="금액입력" onChange={onType} value={insertCoin} />
+      </div>
+      <VendingMachine money={insertCoin} /> */}
+      <Sample />
+    </>
   );
 }
 
