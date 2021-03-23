@@ -5,8 +5,8 @@ import PhoneNumber from "./PhoneNumber";
 
 function App() {
   const [names, setNames] = useState([
-    { id: 1, text: "토르", mobile: "", active: true },
-    { id: 2, text: "헐크", mobile: "", active: true },
+    { id: 1, text: "토르", mobile: "", active: false },
+    { id: 2, text: "헐크", mobile: "", active: false },
     { id: 3, text: "캡틴아메리카", mobile: "", active: false },
   ]);
 
@@ -38,12 +38,18 @@ function App() {
         />
         <button onClick={onAdd}>추가</button>
       </div>
-      <NameList names={names} />
+      <NameList
+        names={names}
+        setNames={setNames}
+        id={names.id}
+        active={names.active}
+      />
       <PhoneNumber
         nextId={nextId}
         names={names}
         setNames={setNames}
         setNextId={setNextId}
+        id={names.id}
       />
     </>
   );
