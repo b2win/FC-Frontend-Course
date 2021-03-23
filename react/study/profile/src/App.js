@@ -1,5 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
+import NameList from "./NameList";
 
 function App() {
   const [name, setName] = useState("");
@@ -12,8 +13,9 @@ function App() {
     <>
       <div>
         <input type="text" placeholder="이름" onChange={onType} value={name} />
-        <button onClick={}>추가</button>
+        <button>추가</button>
       </div>
+      <NameList />
     </>
   );
 }
