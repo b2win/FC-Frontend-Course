@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 
-function NameList() {
-  const [names, setNames] = useState([
-    { id: 1, text: "토르" },
-    { id: 2, text: "헐크" },
-    { id: 3, text: "캡틴아메리카" },
-  ]);
+function NameList({ names, active }) {
+  const style = {
+    color: active ? "green" : "black",
+    cursor: "pointer",
+  };
 
-  const savedList = names.map((name) => <li key={name.id}>{name.text}</li>);
+  const savedList = names.map((name) => (
+    <li style={style} key={name.id}>
+      {name.text}
+    </li>
+  ));
   return (
     <>
       <ul>{savedList}</ul>
