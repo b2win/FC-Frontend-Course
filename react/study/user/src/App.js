@@ -6,9 +6,9 @@ import Phone from "./Phone";
 
 function App() {
   const [names, setNames] = useState([
-    { id: 1, username: "토르", mobile: "", active: true },
-    { id: 2, username: "헐크", mobile: "", active: false },
-    { id: 3, username: "캡틴아메리카", mobile: "", active: false },
+    { id: 1, username: "토르", mobile: true, active: true },
+    { id: 2, username: "헐크", mobile: true, active: false },
+    { id: 3, username: "캡틴아메리카", mobile: true, active: false },
   ]);
 
   const [inputText, setInputText] = useState("");
@@ -31,6 +31,7 @@ function App() {
 
   const onDelete = (id) => {
     setNames(names.filter((user) => user.id !== id));
+    console.log(setNames);
   };
 
   const onToggle = (id) => {
@@ -40,6 +41,15 @@ function App() {
       )
     );
   };
+
+  // const addMobile = (mobile) => {
+  //   setNames(
+  //     names.map((user) =>
+  //       user.mobile === mobile ? { ...user, mobile: !names.mobile } : user
+  //     )
+  //   );
+  //   console.log(names);
+  // };
 
   return (
     <>
@@ -57,6 +67,8 @@ function App() {
         nextId={nextId}
         onDelete={onDelete}
         onToggle={onToggle}
+        setNames={setNames}
+        // addMobile={addMobile}
       />
     </>
   );
