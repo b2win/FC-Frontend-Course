@@ -10,7 +10,7 @@ function Phone({ names, onDelete, setNames }) {
   const addMobile = () => {
     setNames(
       names.map((user) =>
-        user.active === true ? { ...user, mobile: { number } } : user
+        user.active === true ? { ...user, mobile: number } : user
       )
     );
     console.log(names);

@@ -29,9 +29,8 @@ function App() {
     setInputText("");
   };
 
-  const onDelete = (id) => {
-    setNames(names.filter((user) => user.id !== id));
-    console.log(setNames);
+  const onDelete = () => {
+    setNames(names.map((user) => (user.active === true ? [] : user)));
   };
 
   const onToggle = (id) => {

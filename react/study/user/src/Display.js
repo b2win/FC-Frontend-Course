@@ -6,7 +6,7 @@ function User({ user, onToggle }) {
       <li
         style={{
           cursor: "pointer",
-          color: user.active ? "green" : "black",
+          color: user.active ? "red" : "black",
         }}
         onClick={() => onToggle(user.id)}
       >
