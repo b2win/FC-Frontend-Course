@@ -6,9 +6,9 @@ import Phone from "./Phone";
 
 function App() {
   const [names, setNames] = useState([
-    { id: 1, username: "토르", mobile: true, active: true },
-    { id: 2, username: "헐크", mobile: true, active: false },
-    { id: 3, username: "캡틴아메리카", mobile: true, active: false },
+    { id: 1, username: "토르", mobile: "", active: false },
+    { id: 2, username: "헐크", mobile: "", active: false },
+    { id: 3, username: "캡틴아메리카", mobile: "", active: false },
   ]);
 
   const [inputText, setInputText] = useState("");
@@ -42,10 +42,10 @@ function App() {
     );
   };
 
-  // const addMobile = (mobile) => {
+  // const addMobile = () => {
   //   setNames(
   //     names.map((user) =>
-  //       user.mobile === mobile ? { ...user, mobile: !names.mobile } : user
+  //       user.active === true ? { ...user, mobile: "010" } : user
   //     )
   //   );
   //   console.log(names);
@@ -54,6 +54,7 @@ function App() {
   return (
     <>
       <div>
+        <p>이름</p>
         <input
           placeholder="이름을 입력해주세요!"
           onChange={typeName}
@@ -68,6 +69,7 @@ function App() {
         onDelete={onDelete}
         onToggle={onToggle}
         setNames={setNames}
+        active={names.active}
         // addMobile={addMobile}
       />
     </>

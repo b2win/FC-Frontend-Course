@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 
-function Phone({ names, nextId, onDelete, onToggle, setNames }) {
+function Phone({ names, onDelete, setNames }) {
   const [number, setNumber] = useState("");
 
   const typeNumber = (e) => {
     setNumber(e.target.value);
   };
 
-  const addMobile = (mobile) => {
+  const addMobile = () => {
     setNames(
       names.map((user) =>
-        user.mobile === mobile ? { ...user, mobile: !names.mobile } : user
+        user.active === true ? { ...user, mobile: { number } } : user
       )
     );
     console.log(names);
@@ -20,7 +20,11 @@ function Phone({ names, nextId, onDelete, onToggle, setNames }) {
     <>
       <div>
         <p>전화번호</p>
-        <input onChange={typeNumber} value={number} />
+        <input
+          onChange={typeNumber}
+          value={number}
+          placeholder="위에 이름을 선택 후 전화번호를 입력해주세요!"
+        />
       </div>
       <div>
         <button onClick={addMobile} value={number}>
