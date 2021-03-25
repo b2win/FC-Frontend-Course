@@ -30,7 +30,7 @@ function App() {
   };
 
   const onDelete = () => {
-    setNames(names.map((user) => (user.active === true ? [] : user)));
+    setNames(names.filter((user) => user.active === false));
   };
 
   const onToggle = (id) => {
@@ -52,6 +52,7 @@ function App() {
 
   return (
     <>
+      <h1>전화번호부</h1>
       <div>
         <p>이름</p>
         <input
@@ -69,6 +70,7 @@ function App() {
         onToggle={onToggle}
         setNames={setNames}
         active={names.active}
+        key={names.id}
         // addMobile={addMobile}
       />
     </>
