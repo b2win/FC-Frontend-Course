@@ -54,7 +54,7 @@ function App() {
     <>
       <h1>전화번호부</h1>
       <div>
-        <p>이름</p>
+        <p>이름 입력란:</p>
         <input
           placeholder="이름을 입력해주세요!"
           onChange={typeName}

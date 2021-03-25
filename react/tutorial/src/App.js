@@ -1,16 +1,17 @@
 import "./App.css";
 import React, { useState } from "react";
-import VendingMachine from "./VendingMachine";
-import Sample from "./Sample";
-import Fast from "./Fast";
+// import VendingMachine from "./VendingMachine";
+// import Sample from "./Sample";
+// import Fast from "./Fast";
+import IterationSample from "./IterationSample";
 
 function App() {
-  const [insertCoin, setInsertCoin] = useState("");
-  const onType = (e) => {
-    if (e.target.value >= 0 && e.target.value <= 1000) {
-      setInsertCoin(e.target.value);
-    }
-  };
+  // const [insertCoin, setInsertCoin] = useState("");
+  // const onType = (e) => {
+  //   if (e.target.value >= 0 && e.target.value <= 1000) {
+  //     setInsertCoin(e.target.value);
+  //   }
+  // };
   return (
     <>
       {/* <h1>자판기</h1>
@@ -19,8 +20,9 @@ function App() {
         <input placeholder="금액입력" onChange={onType} value={insertCoin} />
       </div>
       <VendingMachine money={insertCoin} /> */}
-      <Sample />
-      <Fast />
+      {/* <Sample />
+      <Fast /> */}
+      <IterationSample />
     </>
   );
 }
