@@ -1,8 +1,12 @@
 import React from "react";
 
-function AddedName({ nameList, selectedName }) {
+function AddedName({ nameList, onClickSelect }) {
   const nameDetail = nameList.map((user) => (
-    <li key={user.id} style={{ cursor: "pointer" }} onClick={selectedName}>
+    <li
+      key={user.id}
+      style={{ cursor: "pointer" }}
+      onClick={() => onClickSelect(user)}
+    >
       {user.name}
     </li>
   ));
