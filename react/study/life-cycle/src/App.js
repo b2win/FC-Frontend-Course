@@ -18,6 +18,7 @@ function App() {
         {visible && <Info />}
       </div>
       <hr />
+      {/* <Info /> */}
       <Counter />
     </>
   );
