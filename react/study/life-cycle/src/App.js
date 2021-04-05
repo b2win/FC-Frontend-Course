@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import Counter from "./Counter";
 import Info from "./Info";
 
@@ -17,6 +17,8 @@ function App() {
         <hr />
         {visible && <Info />}
       </div>
+      <hr />
+      <Counter />
     </>
   );
 }
