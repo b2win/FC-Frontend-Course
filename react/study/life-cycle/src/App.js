@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Average from "./Average";
 import Counter from "./Counter";
 import Info from "./Info";
 
@@ -20,6 +21,8 @@ function App() {
       <hr />
       {/* <Info /> */}
       <Counter />
+      <hr />
+      <Average />
     </>
   );
 }
