@@ -5,14 +5,13 @@ function Selected({ selectedNameDetail, onClickDeleteName }) {
     <>
       <hr />
       <div style={{ marginLeft: "200px" }}>
-        <span>선택된 정보: </span>
+        <p style={{ display: "inline", textDecoration: "underline" }}>
+          선택된 정보
+        </p>
+        &nbsp;
         <button onClick={onClickDeleteName}>삭제</button>
-        <div>
-          <span>이름: {selectedNameDetail.name}</span>
-        </div>
-        <div>
-          <span>전화번호: {selectedNameDetail.mobile}</span>
-        </div>
+        <p style={{ marginTop: "30px" }}>이름: {selectedNameDetail.name}</p>
+        <p>전화번호: {selectedNameDetail.mobile}</p>
       </div>
     </>
   );

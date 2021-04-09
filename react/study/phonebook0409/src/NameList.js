@@ -1,11 +1,19 @@
 import React from "react";
 
-function NameList({ phonebook, onClickNameDetail }) {
+function NameList({
+  phonebook,
+  onClickNameDetail,
+  detailVisible,
+  setDetailVisible,
+}) {
   const nameDetail = phonebook.map((list) => (
     <li
       key={list.id}
       style={{ cursor: "pointer", fontWeight: "bold" }}
-      onClick={() => onClickNameDetail(list)}
+      onClick={() => {
+        onClickNameDetail(list);
+        setDetailVisible(!detailVisible);
+      }}
     >
       {list.name}
     </li>

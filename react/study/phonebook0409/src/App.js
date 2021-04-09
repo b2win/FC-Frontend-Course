@@ -9,6 +9,8 @@ function App() {
   const [inputName, setInputName] = useState(""); //이름입력창
   const [nextId, setNextId] = useState(0);
   const [selectedNameDetail, setSelectedNameDetail] = useState("");
+  const [inputNumber, setInputNumber] = useState("");
+  const [detailVisible, setDetailVisible] = useState(false);
 
   const enterName = (e) => {
     setInputName(e.target.value);
@@ -38,11 +40,8 @@ function App() {
       return detail; //중요!
     });
     setPhonebook(phonebook);
-    console.log(phonebook);
     setInputNumber("");
   };
-
-  const [inputNumber, setInputNumber] = useState("");
 
   const enterNumber = (e) => {
     setInputNumber(e.target.value);
@@ -86,11 +85,18 @@ function App() {
           />
         </div>
       </div>
-      <NameList phonebook={phonebook} onClickNameDetail={onClickNameDetail} />
-      <Selected
-        selectedNameDetail={selectedNameDetail}
-        onClickDeleteName={onClickDeleteName}
+      <NameList
+        phonebook={phonebook}
+        onClickNameDetail={onClickNameDetail}
+        detailVisible={detailVisible}
+        setDetailVisible={setDetailVisible}
       />
+      {detailVisible && (
+        <Selected
+          selectedNameDetail={selectedNameDetail}
+          onClickDeleteName={onClickDeleteName}
+        />
+      )}
     </>
   );
 }
