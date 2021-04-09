@@ -4,7 +4,7 @@ function NameList({ phonebook, onClickNameDetail }) {
   const nameDetail = phonebook.map((list) => (
     <li
       key={list.id}
-      style={{ cursor: "pointer", color: "blue" }}
+      style={{ cursor: "pointer", fontWeight: "bold" }}
       onClick={() => onClickNameDetail(list)}
     >
       {list.name}

@@ -52,26 +52,45 @@ function App() {
     });
   };
 
+  const onClickDeleteName = () => {
+    const updatedPhonebook = phonebook.filter(
+      (detail) => detail.id !== selectedNameDetail.id
+    );
+    setPhonebook(updatedPhonebook);
+    setSelectedNameDetail({
+      name: "",
+      mobile: "",
+      id: "",
+    });
+  };
+
   return (
     <>
       <h1>전화번호부</h1>
-      <div>
-        <p>이름입력</p>
-        <input
-          type="text"
-          placeholder="성함을 입력해주세요!"
-          value={inputName}
-          onChange={enterName}
-        />
-        <button onClick={onClickAddName}>추가</button>
+      <div id="phonebook">
+        <div id="name">
+          <p>이름입력</p>
+          <input
+            type="text"
+            placeholder="성함을 입력해주세요!"
+            value={inputName}
+            onChange={enterName}
+          />
+          <button onClick={onClickAddName}>추가</button>
+        </div>
+        <div id="phone">
+          <MobileNumber
+            inputNumber={inputNumber}
+            enterNumber={enterNumber}
+            onClickSaveNumber={onClickSaveNumber}
+          />
+        </div>
       </div>
       <NameList phonebook={phonebook} onClickNameDetail={onClickNameDetail} />
-      <MobileNumber
-        inputNumber={inputNumber}
-        enterNumber={enterNumber}
-        onClickSaveNumber={onClickSaveNumber}
+      <Selected
+        selectedNameDetail={selectedNameDetail}
+        onClickDeleteName={onClickDeleteName}
       />
-      <Selected selectedNameDetail={selectedNameDetail} />
     </>
   );
 }

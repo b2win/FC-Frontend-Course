@@ -1,11 +1,12 @@
 import React from "react";
 
-function Selected({ selectedNameDetail }) {
+function Selected({ selectedNameDetail, onClickDeleteName }) {
   return (
     <>
       <hr />
-      <div>
-        <p>선택된 정보: </p>
+      <div style={{ marginLeft: "200px" }}>
+        <span>선택된 정보: </span>
+        <button onClick={onClickDeleteName}>삭제</button>
         <div>
           <span>이름: {selectedNameDetail.name}</span>
         </div>
