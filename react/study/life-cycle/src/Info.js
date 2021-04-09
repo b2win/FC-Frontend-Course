@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 import useInputs from "./useInputs";
 
 // function reducer(state, action) {
@@ -28,19 +28,19 @@ function Info() {
   //   dispatch(e.target);
   // };
 
-  // useEffect(() => {
-  //   // console.log("렌더링이 완료되었습니다!");
-  //   // console.log({
-  //   //   name,
-  //   //   nickname,
-  //   // });
-  //   console.log("effect");
-  //   console.log(name);
-  //   return () => {
-  //     console.log("cleanup");
-  //     console.log(name);
-  //   };
-  // }, [name]);
+  useEffect(() => {
+    // console.log("렌더링이 완료되었습니다!");
+    // console.log({
+    //   name,
+    //   nickname,
+    // });
+    console.log("effect");
+    console.log(nickname);
+    return () => {
+      console.log("cleanup");
+      console.log(nickname);
+    };
+  }, [nickname]);
 
   // const onChangeName = (e) => {
   //   setName(e.target.value);

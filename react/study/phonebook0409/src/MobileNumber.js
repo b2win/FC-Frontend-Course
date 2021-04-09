@@ -1,6 +1,11 @@
 import React from "react";
 
-function MobileNumber({ onClickSaveNumber, inputNumber, enterNumber }) {
+function MobileNumber({
+  onClickSaveNumber,
+  inputNumber,
+  enterNumber,
+  numberInput,
+}) {
   return (
     <div>
       <p>전화번호 입력창</p>
@@ -9,6 +14,7 @@ function MobileNumber({ onClickSaveNumber, inputNumber, enterNumber }) {
         placeholder="핸드폰번호를 입력해주세요!"
         value={inputNumber}
         onChange={enterNumber}
+        ref={numberInput}
       />
       <button onClick={onClickSaveNumber}>저장</button>
     </div>

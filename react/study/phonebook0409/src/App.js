@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import NameList from "./NameList";
 import "./App.css";
 import Selected from "./Selected";
@@ -12,6 +12,9 @@ function App() {
   const [inputNumber, setInputNumber] = useState("");
   const [detailVisible, setDetailVisible] = useState(false);
 
+  const nameInput = useRef();
+  const numberInput = useRef();
+
   const enterName = (e) => {
     setInputName(e.target.value);
   };
@@ -20,16 +23,15 @@ function App() {
     const addName = phonebook.concat({
       id: nextId,
       name: inputName,
-      mobile: "n/a",
     });
     setNextId(nextId + 1);
     setPhonebook(addName);
     setInputName("");
+    nameInput.current.focus();
   };
 
   const onClickNameDetail = (detail) => {
     setSelectedNameDetail(detail);
-    console.log(selectedNameDetail);
   };
 
   const onClickSaveNumber = () => {
@@ -41,6 +43,7 @@ function App() {
     });
     setPhonebook(phonebook);
     setInputNumber("");
+    numberInput.current.focus();
   };
 
   const enterNumber = (e) => {
@@ -74,6 +77,7 @@ function App() {
             placeholder="성함을 입력해주세요!"
             value={inputName}
             onChange={enterName}
+            ref={nameInput}
           />
           <button onClick={onClickAddName}>추가</button>
         </div>
@@ -82,6 +86,7 @@ function App() {
             inputNumber={inputNumber}
             enterNumber={enterNumber}
             onClickSaveNumber={onClickSaveNumber}
+            numberInput={numberInput}
           />
         </div>
       </div>
