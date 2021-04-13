@@ -9,7 +9,7 @@ function createBulkTodos() {
   for (let i = 1; i <= 2500; i++) {
     array.push({
       id: i,
-      text: '할 일',
+      text: `할 일 ${i}`,
       checked: false,
     });
   }
