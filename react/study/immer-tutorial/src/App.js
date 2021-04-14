@@ -9,21 +9,18 @@ function App() {
     uselessValue: null,
   });
 
-  const onChange = useCallback(
-    (e) => {
-      const { name, value } = e.target;
-      // setForm({
-      //   ...form,
-      //   [name]: [value],
-      // });
-      setForm(
-        produce(form, (draft) => {
-          draft[name] = value;
-        })
-      );
-    },
-    [form]
-  );
+  const onChange = useCallback((e) => {
+    const { name, value } = e.target;
+    // setForm({
+    //   ...form,
+    //   [name]: [value],
+    // });
+    setForm(
+      produce((draft) => {
+        draft[name] = value;
+      })
+    );
+  }, []);
 
   const onSubmit = useCallback(
     (e) => {
@@ -39,7 +36,7 @@ function App() {
       //   array: data.array.concat(info),
       // });
       setData(
-        produce(data, (draft) => {
+        produce((draft) => {
           draft.array.push(info);
         })
       );
@@ -53,23 +50,20 @@ function App() {
     [data, form.name, form.username]
   );
 
-  const onRemove = useCallback(
-    (id) => {
-      // setData({
-      //   ...data,
-      //   array: data.array.filter((info) => info.id !== id),
-      // });
-      setData(
-        produce(data, (draft) => {
-          draft.array.splice(
-            draft.array.findIndex((info) => info.id === id),
-            1
-          );
-        })
-      );
-    },
-    [data]
-  );
+  const onRemove = useCallback((id) => {
+    // setData({
+    //   ...data,
+    //   array: data.array.filter((info) => info.id !== id),
+    // });
+    setData(
+      produce((draft) => {
+        draft.array.splice(
+          draft.array.findIndex((info) => info.id === id),
+          1
+        );
+      })
+    );
+  }, []);
 
   return (
     <div>
