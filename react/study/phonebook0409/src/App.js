@@ -24,6 +24,7 @@ function App() {
       id: nextId,
       name: inputName,
     });
+    console.log(addName);
     setNextId(nextId + 1);
     setPhonebook(addName);
     setInputName("");

@@ -10,26 +10,21 @@ import Total from "./Total";
 function App() {
   const [basket, setBasket] = useState([]);
   const [nextId, setNextId] = useState(0);
-  const [display, setDisplay] = useState("");
 
   const onClickMenu = (detail) => {
-    const addMenu = {
+    const addMenu = basket.concat({
       id: nextId,
       a: detail.nameKor,
       b: detail.price,
-    };
-    setBasket(basket.concat(addMenu));
-    console.log(addMenu);
-    console.log(basket.b);
+    });
+    // console.log(addMenu);
+    setBasket(addMenu);
     setNextId(nextId + 1);
+    // console.log(detail.nameKor);
   };
 
   const category = [
-    {
-      id: 1,
-      name: "버거",
-      value: <Burger onClickMenu={onClickMenu} />,
-    },
+    { id: 1, name: "버거", value: <Burger onClickMenu={onClickMenu} /> },
     {
       id: 2,
       name: "맥카페 & 음료",
@@ -39,6 +34,8 @@ function App() {
     { id: 4, name: "맥모닝", value: <Morning /> },
     { id: 5, name: "맥런치", value: <Lunch /> },
   ];
+
+  const [display, setDisplay] = useState(<Burger />);
 
   const onClickSidebarMenu = (id) => {
     setDisplay(category.map((list) => list.id === id && list.value));
@@ -59,10 +56,11 @@ function App() {
       {list.a} 1개 {list.b}원
     </li>
   ));
+  // console.log(basket);
 
   return (
     <div>
-      <h1>카테고리</h1>
+      <h1>메뉴</h1>
       <div className="sideBar">
         <ul>{categoryList}</ul>
       </div>

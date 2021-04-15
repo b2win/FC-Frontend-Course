@@ -49,7 +49,11 @@ function Burger({ onClickMenu }) {
   const burgerList = burger.map((list) => (
     <li
       key={list.id}
-      style={{ cursor: "pointer", fontWeight: "bold" }}
+      style={{
+        cursor: "pointer",
+        fontWeight: "bold",
+        height: 100,
+      }}
       onClick={() => {
         onClickMenu(list);
       }}
@@ -57,13 +61,16 @@ function Burger({ onClickMenu }) {
       <div>{list.nameKor}</div>
       <div>{list.nameEng}</div>
       <div>{list.kcal}</div>
+      <div>{list.price}원</div>
     </li>
   ));
 
   return (
     <div>
       <h1>버거</h1>
-      <ul>{burgerList}</ul>
+      <ul style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+        {burgerList}
+      </ul>
     </div>
   );
 }
