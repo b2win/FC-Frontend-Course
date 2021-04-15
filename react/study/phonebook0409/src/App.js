@@ -30,8 +30,9 @@ function App() {
     nameInput.current.focus();
   };
 
-  const onClickNameDetail = (detail) => {
-    setSelectedNameDetail(detail);
+  const onClickNameDetail = (any) => {
+    setSelectedNameDetail(any);
+    console.log(selectedNameDetail);
   };
 
   const onClickSaveNumber = () => {

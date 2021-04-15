@@ -5,10 +5,21 @@ import Dessert from "./Dessert";
 import Drink from "./Drink";
 import Lunch from "./Lunch";
 import Morning from "./Morning";
+import Total from "./Total";
 
 function App() {
+  const [name, setName] = useState("가나다라마바사아자차가타파하");
+  const [price, setPrice] = useState("");
+
+  const onClickMenu = (detail) => {
+    // setAddMenu(list);
+    setName(detail.nameKor);
+    setPrice(detail.price);
+    console.log(detail.nameKor);
+  };
+
   const category = [
-    { id: 1, name: "버거", value: <Burger /> },
+    { id: 1, name: "버거", value: <Burger onClickMenu={onClickMenu} /> },
     { id: 2, name: "맥카페 & 음료", value: <Drink /> },
     { id: 3, name: "사이드 & 디저트", value: <Dessert /> },
     { id: 4, name: "맥모닝", value: <Morning /> },
@@ -38,6 +49,10 @@ function App() {
         <ul>{categoryList}</ul>
       </div>
       <div>{display}</div>
+      <div>
+        {name} 금액: {price}원 개수: 3개 총 금액: {price * 3}원
+      </div>
+      <Total name={name} price={price} />
     </div>
   );
 }

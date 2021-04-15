@@ -1,6 +1,6 @@
 import React from "react";
 
-function Burger() {
+function Burger({ onClickMenu }) {
   const burger = [
     {
       id: 1,
@@ -47,14 +47,17 @@ function Burger() {
   ];
 
   const burgerList = burger.map((list) => (
-    <>
-      <li key={list.id}>
-        <div>{list.nameKor}</div>
-        <div>{list.nameEng}</div>
-        <div>{list.kcal}</div>
-      </li>
-      <br />
-    </>
+    <li
+      key={list.id}
+      style={{ cursor: "pointer", fontWeight: "bold" }}
+      onClick={() => {
+        onClickMenu(list);
+      }}
+    >
+      <div>{list.nameKor}</div>
+      <div>{list.nameEng}</div>
+      <div>{list.kcal}</div>
+    </li>
   ));
 
   return (
