@@ -4,7 +4,7 @@ function Burger() {
   return (
     <div>
       <h1>버거</h1>
-      <ul style={{ listStyle: "none" }}>
+      <ul>
         <li>
           <div className="kor-name">필레 오 피쉬</div>
           <div className="eng-name">Filet-O-Fish</div>

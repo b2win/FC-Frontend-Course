@@ -1,36 +1,40 @@
 import React, { useState } from "react";
 import "./App.css";
 import Burger from "./Burger";
+import Drink from "./Drink";
 
 function App() {
   const category = [
-    "버거",
-    "맥카페 & 음료",
-    "사이드 & 디저트",
-    "맥모닝",
-    "맥런치",
+    { id: 1, name: "버거", value: <Burger /> },
+    { id: 2, name: "맥카페 & 음료", value: <Drink /> },
+    { id: 3, name: "사이드 & 디저트", value: <Burger /> },
+    { id: 4, name: "맥모닝", value: <Drink /> },
+    { id: 5, name: "맥런치", value: <Burger /> },
   ];
 
-  const [display, setDisplay] = useState(<Burger />)
+  const [display, setDisplay] = useState(<Burger />);
 
-  const onClickSidebarMenu = () => {
-    setDisplay(<Burger />)
-  }
-  }
+  const onClickSidebarMenu = (id) => {
+    setDisplay(category.map((list) => list.id === id && list.value));
+  };
 
   const categoryList = category.map((list) => (
-    <li onClick={onClickSidebarMenu}>{list}</li>
+    <li
+      key={list.id}
+      style={{ cursor: "pointer", fontWeight: "bold" }}
+      onClick={() => onClickSidebarMenu(list.id)}
+    >
+      {list.name}
+    </li>
   ));
 
   return (
     <div>
       <h1>메뉴</h1>
       <div className="sideBar">
-        <ul style={{ listStyle: "none" }}>{categoryList}</ul>
+        <ul>{categoryList}</ul>
       </div>
-      <div>
-        <Burger />
-      </div>
+      <div>{display}</div>
     </div>
   );
 }
