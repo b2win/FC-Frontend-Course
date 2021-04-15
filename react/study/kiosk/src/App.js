@@ -35,9 +35,13 @@ function App() {
       name: "맥카페 & 음료",
       value: <Drink onClickMenu={onClickMenu} />,
     },
-    { id: 3, name: "사이드 & 디저트", value: <Dessert /> },
-    { id: 4, name: "맥모닝", value: <Morning /> },
-    { id: 5, name: "맥런치", value: <Lunch /> },
+    {
+      id: 3,
+      name: "사이드 & 디저트",
+      value: <Dessert onClickMenu={onClickMenu} />,
+    },
+    { id: 4, name: "맥모닝", value: <Morning onClickMenu={onClickMenu} /> },
+    { id: 5, name: "맥런치", value: <Lunch onClickMenu={onClickMenu} /> },
   ];
 
   const onClickSidebarMenu = (id) => {

@@ -1,40 +1,75 @@
 import React from "react";
 
-function Dessert() {
+function Dessert({ onClickMenu }) {
+  const dessert = [
+    {
+      id: 1,
+      nameKor: "상하이 치킨 스낵랩",
+      nameEng: "Shanghai Chicken Snack Wrap",
+      kcal: "283kcal",
+      price: 100,
+    },
+    {
+      id: 2,
+      nameKor: "골든 모짜렐라 치즈스틱",
+      nameEng: "Golden Mozzarella Cheese Sticks",
+      kcal: "162kcal",
+      price: 200,
+    },
+    {
+      id: 3,
+      nameKor: "후렌치 후라이",
+      nameEng: "French Fries",
+      kcal: "332kcal",
+      price: 300,
+    },
+    {
+      id: 4,
+      nameKor: "맥너겟®",
+      nameEng: "McNuggets®",
+      kcal: "171kcal",
+      price: 400,
+    },
+    {
+      id: 5,
+      nameKor: "맥스파이시®치킨 텐더",
+      nameEng: "McSpicy® Chicken Tenders",
+      kcal: "191kcal",
+      price: 500,
+    },
+    {
+      id: 6,
+      nameKor: "해쉬 브라운",
+      nameEng: "Hash Brown",
+      kcal: "159kcal",
+      price: 600,
+    },
+  ];
+
+  const dessertList = dessert.map((list) => (
+    <li
+      key={list.id}
+      style={{
+        cursor: "pointer",
+        fontWeight: "bold",
+        height: 100,
+      }}
+      onClick={() => {
+        onClickMenu(list);
+      }}
+    >
+      <div>{list.nameKor}</div>
+      <div>{list.nameEng}</div>
+      <div>{list.kcal}</div>
+      <div>{list.price}원</div>
+    </li>
+  ));
+
   return (
     <div>
       <h1>사이드 &amp; 디저트</h1>
-      <ul>
-        <li>
-          <div className="kor-name">상하이 치킨 스낵랩</div>
-          <div className="eng-name">Shanghai Chicken Snack Wrap</div>
-          <div>283kcal</div>
-        </li>
-        <li>
-          <div className="kor-name">골든 모짜렐라 치즈스틱</div>
-          <div className="eng-name">Golden Mozzarella Cheese Sticks</div>
-          <div>162kcal</div>
-        </li>
-        <li>
-          <div className="kor-name">후렌치 후라이</div>
-          <div className="eng-name">French Fries</div>
-          <div>332kcal</div>
-        </li>
-        <li>
-          <div className="kor-name">맥너겟®</div>
-          <div className="eng-name">McNuggets®</div>
-          <div>171kcal</div>
-        </li>
-        <li>
-          <div className="kor-name">맥스파이시®치킨 텐더</div>
-          <div className="eng-name">McSpicy® Chicken Tenders</div>
-          <div>191kcal</div>
-        </li>
-        <li>
-          <div className="kor-name">해쉬 브라운</div>
-          <div className="eng-name">Hash Brown</div>
-          <div>159kcal</div>
-        </li>
+      <ul style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+        {dessertList}
       </ul>
     </div>
   );
