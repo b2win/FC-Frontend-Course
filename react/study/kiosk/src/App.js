@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import Burger from "./Burger";
 
 function App() {
   const category = [
@@ -9,7 +10,17 @@ function App() {
     "맥모닝",
     "맥런치",
   ];
-  const categoryList = category.map((list) => <li>{list}</li>);
+
+  const [display, setDisplay] = useState(<Burger />)
+
+  const onClickSidebarMenu = () => {
+    setDisplay(<Burger />)
+  }
+  }
+
+  const categoryList = category.map((list) => (
+    <li onClick={onClickSidebarMenu}>{list}</li>
+  ));
 
   return (
     <div>
@@ -17,7 +28,9 @@ function App() {
       <div className="sideBar">
         <ul style={{ listStyle: "none" }}>{categoryList}</ul>
       </div>
-      <div></div>
+      <div>
+        <Burger />
+      </div>
     </div>
   );
 }
