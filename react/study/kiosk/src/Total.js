@@ -5,7 +5,9 @@ function Total({ selectedMenu, total }) {
     <div>
       <h2>선택된 메뉴</h2>
       <ul>{selectedMenu}</ul>
-      <div>총금액: {total} </div>
+      <div style={{ fontSize: "2rem", marginLeft: "15rem" }}>
+        Total: {total}원{" "}
+      </div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 
-function Burger({ onClickMenu }) {
+function Burger({ onClickMenu, setVisible }) {
   const burger = [
     {
       id: 1,
@@ -56,6 +56,7 @@ function Burger({ onClickMenu }) {
       }}
       onClick={() => {
         onClickMenu(list);
+        setVisible(true);
       }}
     >
       <div>{list.nameKor}</div>

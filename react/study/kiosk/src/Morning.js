@@ -1,6 +1,6 @@
 import React from "react";
 
-function Morning({ onClickMenu }) {
+function Morning({ onClickMenu, setVisible }) {
   const morning = [
     {
       id: 1,
@@ -56,6 +56,7 @@ function Morning({ onClickMenu }) {
       }}
       onClick={() => {
         onClickMenu(list);
+        setVisible(true);
       }}
     >
       <div>{list.nameKor}</div>

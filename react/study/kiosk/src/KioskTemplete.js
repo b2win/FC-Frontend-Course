@@ -6,13 +6,11 @@ const KioskTemplateBlock = styled.div`
   height: 900px;
 
   position: relative;
-  background: white;
+  background: #f8f9fa;
   border-radius: 16px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.04);
 
   margin: 0 auto;
-  margin-top: 96px;
-  margin-bottom: 32px;
 
   display: flex;
   flex-direction: column;
