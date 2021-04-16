@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import KioskTemplate from "./KioskTemplete";
 import "./App.css";
 import Burger from "./Burger";
 import Dessert from "./Dessert";
@@ -65,7 +66,7 @@ function App() {
   ));
 
   return (
-    <div>
+    <KioskTemplate>
       <h1>카테고리</h1>
       <div className="sideBar">
         <ul>{categoryList}</ul>
@@ -73,7 +74,7 @@ function App() {
       <div>{display}</div>
 
       <Total selectedMenu={selectedMenu} />
-    </div>
+    </KioskTemplate>
   );
 }
 

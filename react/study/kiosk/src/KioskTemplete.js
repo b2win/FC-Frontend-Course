@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-const TodoTemplateBlock = styled.div`
-  width: 512px;
-  height: 768px;
+const KioskTemplateBlock = styled.div`
+  width: 600px;
+  height: 850px;
 
   position: relative;
   background: white;
@@ -18,8 +18,8 @@ const TodoTemplateBlock = styled.div`
   flex-direction: column;
 `;
 
-function TodoTemplate({ children }) {
-  return <TodoTemplateBlock>{children}</TodoTemplateBlock>;
+function KioskTemplate({ children }) {
+  return <KioskTemplateBlock>{children}</KioskTemplateBlock>;
 }
 
-export default TodoTemplate;
+export default KioskTemplate;
