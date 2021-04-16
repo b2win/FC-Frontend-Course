@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const KioskTemplateBlock = styled.div`
   width: 600px;
-  height: 850px;
+  height: 900px;
 
   position: relative;
   background: white;

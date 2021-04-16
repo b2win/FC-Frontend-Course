@@ -12,6 +12,7 @@ function App() {
   const [basket, setBasket] = useState([]);
   const [nextId, setNextId] = useState(0);
   const [display, setDisplay] = useState("");
+  const [total, setTotal] = useState("");
 
   const onClickMenu = (detail) => {
     const addMenu = {
@@ -23,6 +24,7 @@ function App() {
     console.log(addMenu);
     console.log(basket.b);
     setNextId(nextId + 1);
+    setTotal((total + addMenu.b) * 1);
   };
 
   const category = [
@@ -73,7 +75,7 @@ function App() {
       </div>
       <div>{display}</div>
 
-      <Total selectedMenu={selectedMenu} />
+      <Total selectedMenu={selectedMenu} total={total} />
     </KioskTemplate>
   );
 }
