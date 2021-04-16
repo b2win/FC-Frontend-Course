@@ -87,13 +87,22 @@ function App() {
   };
 
   const categoryList = category.map((list) => (
-    <li
+    <h3
       key={list.id}
-      style={{ cursor: "pointer", fontWeight: "bold" }}
+      style={{
+        cursor: "pointer",
+        fontWeight: "bold",
+        background: "#dee2e6",
+        height: "30px",
+        width: "600px",
+        textAlign: "center",
+        padding: 0,
+        borderRadius: "16px",
+      }}
       onClick={() => onClickSidebarMenu(list.id)}
     >
       {list.name}
-    </li>
+    </h3>
   ));
 
   const selectedMenu = basket.map((list) => (
@@ -125,13 +134,13 @@ function App() {
 
   return (
     <KioskTemplate>
+      <h1>Welcome to McDonald's</h1>
       <h1>카테고리</h1>
       <div className="sideBar">
         <ul>{categoryList}</ul>
       </div>
       <div>{display}</div>
       {visible && <Total selectedMenu={selectedMenu} total={total} />}
-      {/* <Total selectedMenu={selectedMenu} total={total} /> */}
     </KioskTemplate>
   );
 }

@@ -53,6 +53,12 @@ function Burger({ onClickMenu, setVisible }) {
         cursor: "pointer",
         fontWeight: "bold",
         height: 100,
+        margin: "1rem",
+        textAlign: "center",
+        border: "1px solid #ced4da",
+        borderRadius: "16px",
+        padding: "1rem",
+        width: "270px",
       }}
       onClick={() => {
         onClickMenu(list);
@@ -69,7 +75,12 @@ function Burger({ onClickMenu, setVisible }) {
   return (
     <div>
       <h1>버거</h1>
-      <ul style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+      <ul
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+        }}
+      >
         {burgerList}
       </ul>
     </div>

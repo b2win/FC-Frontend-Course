@@ -53,6 +53,12 @@ function Dessert({ onClickMenu, setVisible }) {
         cursor: "pointer",
         fontWeight: "bold",
         height: 100,
+        margin: "1rem",
+        textAlign: "center",
+        border: "1px solid #ced4da",
+        borderRadius: "16px",
+        padding: "1rem",
+        width: "270px",
       }}
       onClick={() => {
         onClickMenu(list);
