@@ -64,8 +64,17 @@ function App() {
   const selectedMenu = basket.map((list) => (
     <li key={list.id}>
       {list.a} 1개 {list.b}원
+      <button onClick={() => onRemove(list.id)}>취소</button>
     </li>
   ));
+
+  const onRemove = (id) => {
+    const removeList = basket.filter((list) => list.id !== id);
+    const subtractPrice = basket.filter((list) => list.id === id);
+    setBasket(removeList);
+    setTotal(total - subtractPrice[0].b);
+    console.log(subtractPrice[0].b);
+  };
 
   return (
     <KioskTemplate>
