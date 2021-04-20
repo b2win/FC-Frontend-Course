@@ -3,7 +3,7 @@ import "./App.css";
 import { Route, Link } from "react-router-dom";
 import About from "./About";
 import Home from "./Home";
-import Profiles from "./Profiles";
+import Profile from "./Profile";
 import HistorySample from "./HistorySample";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
           <Link to="/about">소개</Link>
         </li>
         <li>
-          <Link to="/profiles">프로필</Link>
+          <Link to="/profile">프로필</Link>
         </li>
         <li>
           <Link to="/history">History 예제</Link>
@@ -26,7 +26,7 @@ function App() {
       <hr />
       <Route path="/" component={Home} exact={true} />
       <Route path={["/About", "/Info"]} component={About} />
-      <Route path="/profiles" component={Profiles} />
+      <Route path="/profile" component={Profile} />
       <Route path="/history" component={HistorySample} />
     </div>
   );
