@@ -1,12 +1,11 @@
 import React from "react";
-import "./App.css";
 import { Route, Link, Switch } from "react-router-dom";
 import About from "./About";
 import Home from "./Home";
-import Profile from "./Profile";
+import Profiles from "./Profiles";
 import HistorySample from "./HistorySample";
 
-function App() {
+const App = () => {
   return (
     <div>
       <ul>
@@ -17,7 +16,7 @@ function App() {
           <Link to="/about">소개</Link>
         </li>
         <li>
-          <Link to="/profile">프로필</Link>
+          <Link to="/profiles">프로필</Link>
         </li>
         <li>
           <Link to="/history">History 예제</Link>
@@ -26,8 +25,8 @@ function App() {
       <hr />
       <Switch>
         <Route path="/" component={Home} exact={true} />
-        <Route path={["/About", "/Info"]} component={About} />
-        <Route path="/profile" component={Profile} />
+        <Route path={["/about", "/info"]} component={About} />
+        <Route path="/profiles" component={Profiles} />
         <Route path="/history" component={HistorySample} />
         <Route
           render={({ location }) => (
@@ -40,6 +39,6 @@ function App() {
       </Switch>
     </div>
   );
-}
+};
 
 export default App;

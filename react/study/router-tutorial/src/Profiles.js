@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, Route } from "react-router-dom";
 import Profile from "./Profile";
+import { withRouter } from "react-router-dom";
 
 function Profiles() {
   const activeStyle = {
@@ -29,9 +30,8 @@ function Profiles() {
         render={() => <div>사용자를 선택해 주세요.</div>}
       />
       <Route path="/profiles/:username" component={Profile} />
-      <WithRouterSample />
     </div>
   );
 }
 
-export default Profiles;
+export default withRouter(Profiles);
