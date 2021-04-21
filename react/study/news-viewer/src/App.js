@@ -1,6 +1,7 @@
-import React from "react";
-// import axios from "axios";
+import React, { useCallback, useState } from "react";
+import Categories from "./components/Categories";
 import NewsList from "./components/NewsList";
+// import axios from "axios";
 
 function App() {
   // const [data, setData] = useState(null);
@@ -14,8 +15,15 @@ function App() {
   //     console.log(e);
   //   }
   // };
+  const [category, setCategory] = useState("all");
+  const onSelect = useCallback((category) => setCategory(category), []);
 
-  return <NewsList />;
+  return (
+    <>
+      <Categories category={category} onSelect={onSelect} />
+      <NewsList category={category} />
+    </>
+  );
   // <div>
   //   <div>
   //     <button onClick={onClick}>불러오기</button>
