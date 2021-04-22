@@ -22,7 +22,7 @@ function Profile({ match }) {
   return (
     <div>
       <h3>
-        {username}({Profile.name})
+        {username}({profile.name})
       </h3>
       <p>{profile.description}</p>
       <WithRouterSample />
