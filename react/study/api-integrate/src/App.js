@@ -1,11 +1,8 @@
 import "./App.css";
+import Users from "./Users";
 
 function App() {
-  return (
-    <div>
-      <div></div>
-    </div>
-  );
+  return <Users />;
 }
 
 export default App;
