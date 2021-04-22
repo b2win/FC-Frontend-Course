@@ -21,5 +21,3 @@ export default function usePromise(promiseCreator, deps) {
 
   return [loading, resolved, error];
 }
-
-export default usePromise;
