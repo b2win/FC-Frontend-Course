@@ -2,6 +2,7 @@ import "./App.css";
 import ColorBox from "./components/ColorBox";
 import SelectColors from "./components/SelectColors";
 import { ColorProvider } from "./contexts/color";
+import ContextSample from "./ContextSample";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <div>
         <SelectColors />
         <ColorBox />
+        <ContextSample />
       </div>
     </ColorProvider>
   );
