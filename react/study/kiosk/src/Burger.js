@@ -8,6 +8,7 @@ function Burger({ onClickMenu, setVisible }) {
       nameEng: "Filet-O-Fish",
       kcal: "342kcal",
       price: 100,
+      address: "/images/burger1.png",
     },
     {
       id: 2,
@@ -15,6 +16,7 @@ function Burger({ onClickMenu, setVisible }) {
       nameEng: "Double Filet-O-Fish",
       kcal: "481kcal",
       price: 200,
+      address: "/images/burger2.png",
     },
     {
       id: 3,
@@ -22,6 +24,7 @@ function Burger({ onClickMenu, setVisible }) {
       nameEng: "1955® Burger",
       kcal: "536kcal",
       price: 300,
+      address: "/images/burger3.png",
     },
     {
       id: 4,
@@ -29,6 +32,7 @@ function Burger({ onClickMenu, setVisible }) {
       nameEng: "Big mac",
       kcal: "583kcal",
       price: 400,
+      address: "/images/burger4.png",
     },
     {
       id: 5,
@@ -36,6 +40,7 @@ function Burger({ onClickMenu, setVisible }) {
       nameEng: "McSpicy® Shanghai Burger",
       kcal: "494kcal",
       price: 500,
+      address: "/images/burger5.png",
     },
     {
       id: 6,
@@ -43,6 +48,7 @@ function Burger({ onClickMenu, setVisible }) {
       nameEng: "McChicken®",
       kcal: "483kcal",
       price: 600,
+      address: "/images/burger6.png",
     },
   ];
 
@@ -65,7 +71,8 @@ function Burger({ onClickMenu, setVisible }) {
         setVisible(true);
       }}
     >
-      <div>{list.nameKor}</div>
+      <img src={list.address} alt={"burger image"} width={"100px"} />
+      <span>{list.nameKor}</span>
       <div>{list.nameEng}</div>
       <div>{list.kcal}</div>
       <div>{list.price}원</div>
