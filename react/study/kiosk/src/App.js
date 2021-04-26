@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import { MdRemoveCircleOutline } from "react-icons/md";
 import KioskTemplate from "./KioskTemplete";
 import "./App.css";
@@ -40,6 +40,18 @@ function App() {
   const [display, setDisplay] = useState("");
   const [total, setTotal] = useState("");
   const [visible, setVisible] = useState(false);
+
+  function reducer(state, action) {
+    switch (action.type) {
+      case "INCREASE":
+        return { value: state.value + 1 };
+      case "DECREASE":
+        return { value: state.value - 1 };
+      default:
+        return state;
+    }
+  }
+  const [state, dispatch] = useReducer(reducer, { value: 1 });
 
   const onClickMenu = (detail) => {
     const addMenu = {
@@ -109,7 +121,9 @@ function App() {
     <li key={list.id}>
       <ListBlock>
         <div>{list.korean}</div>
-        <div>1개</div>
+        <div>{state.value}개</div>
+        <button onClick={() => dispatch({ type: "INCREASE" })}>+</button>
+        <button onClick={() => dispatch({ type: "DECREASE" })}>-</button>
         <div>{list.menuPrice}원</div>
         <button onClick={() => onRemove(list.id)}>
           <MdRemoveCircleOutline
