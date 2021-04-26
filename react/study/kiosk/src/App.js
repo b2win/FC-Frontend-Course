@@ -98,6 +98,18 @@ function App() {
     setDisplay(category.map((list) => list.id === id && list.value));
   };
 
+  // const onClickCounterUp = () => {
+
+  // }
+
+  // const onClickCounterDown = () => {
+
+  // }
+
+  const [up, setUp] = useState(1);
+  const [down, setDown] = useState(0);
+  const number = up + down;
+
   const categoryList = category.map((list) => (
     <h3
       key={list.id}
@@ -121,10 +133,13 @@ function App() {
     <li key={list.id}>
       <ListBlock>
         <div>{list.korean}</div>
-        <div>{state.value}개</div>
+        {/* <div>{state.value}개</div>
         <button onClick={() => dispatch({ type: "INCREASE" })}>+</button>
-        <button onClick={() => dispatch({ type: "DECREASE" })}>-</button>
-        <div>{list.menuPrice}원</div>
+        <button onClick={() => dispatch({ type: "DECREASE" })}>-</button> */}
+        <div>{up + down}개</div>
+        <button onClick={() => setUp(up + 1)}>+</button>
+        <button onClick={() => setDown(down - 1)}>-</button>
+        <div>{list.menuPrice * number}원</div>
         <button onClick={() => onRemove(list.id)}>
           <MdRemoveCircleOutline
             style={{
