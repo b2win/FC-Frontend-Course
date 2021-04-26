@@ -44,14 +44,14 @@ function App() {
   const onClickMenu = (detail) => {
     const addMenu = {
       id: nextId,
-      a: detail.nameKor,
-      b: detail.price,
+      korean: detail.nameKor,
+      menuPrice: detail.price,
     };
     setBasket(basket.concat(addMenu));
     console.log(addMenu);
-    console.log(basket.b);
+    console.log(basket.menuPrice);
     setNextId(nextId + 1);
-    setTotal((total + addMenu.b) * 1);
+    setTotal((total + addMenu.menuPrice) * 1);
   };
 
   const category = [
@@ -108,9 +108,9 @@ function App() {
   const selectedMenu = basket.map((list) => (
     <li key={list.id}>
       <ListBlock>
-        <div className="abd">{list.a}</div>
+        <div>{list.korean}</div>
         <div>1개</div>
-        <div>{list.b}원</div>
+        <div>{list.menuPrice}원</div>
         <button onClick={() => onRemove(list.id)}>
           <MdRemoveCircleOutline
             style={{
@@ -128,8 +128,8 @@ function App() {
     const removeList = basket.filter((list) => list.id !== id);
     const subtractPrice = basket.filter((list) => list.id === id);
     setBasket(removeList);
-    setTotal(total - subtractPrice[0].b);
-    console.log(subtractPrice[0].b);
+    setTotal(total - subtractPrice[0].menuPrice);
+    console.log(subtractPrice[0].menuPrice);
   };
 
   return (
