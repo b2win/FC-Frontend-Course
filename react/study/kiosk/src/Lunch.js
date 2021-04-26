@@ -8,6 +8,7 @@ function Lunch({ onClickMenu, setVisible }) {
       nameEng: "Big Mac® Meal",
       kcal: "1064kcal",
       price: 100,
+      address: "/images/lunch1.png",
     },
     {
       id: 2,
@@ -15,6 +16,7 @@ function Lunch({ onClickMenu, setVisible }) {
       nameEng: "McSpicy® Shanghai Burger Meal",
       kcal: "975kcal",
       price: 200,
+      address: "/images/lunch2.png",
     },
     {
       id: 3,
@@ -22,6 +24,7 @@ function Lunch({ onClickMenu, setVisible }) {
       nameEng: "1955® Burger Meal",
       kcal: "1017kcal",
       price: 300,
+      address: "/images/lunch3.png",
     },
     {
       id: 4,
@@ -29,6 +32,7 @@ function Lunch({ onClickMenu, setVisible }) {
       nameEng: "Bacon Tomato Deluxe Meal",
       kcal: "1026kcal",
       price: 400,
+      address: "/images/lunch4.png",
     },
     {
       id: 5,
@@ -36,6 +40,7 @@ function Lunch({ onClickMenu, setVisible }) {
       nameEng: "McChicken® Mozzarella Meal",
       kcal: "1170kcal",
       price: 500,
+      address: "/images/lunch5.png",
     },
     {
       id: 6,
@@ -43,6 +48,7 @@ function Lunch({ onClickMenu, setVisible }) {
       nameEng: "Supreme Shrimp Burger Meal",
       kcal: "913kcal",
       price: 600,
+      address: "/images/lunch6.png",
     },
   ];
 
@@ -65,10 +71,19 @@ function Lunch({ onClickMenu, setVisible }) {
         setVisible(true);
       }}
     >
-      <div>{list.nameKor}</div>
-      <div>{list.nameEng}</div>
-      <div>{list.kcal}</div>
-      <div>{list.price}원</div>
+      <img
+        src={list.address}
+        alt={"lunch-menu"}
+        width={"90px"}
+        height={"90px"}
+        style={{ float: "left" }}
+      />
+      <div style={{ display: "inline-block" }}>
+        <div style={{ fontSize: "0.8rem" }}>{list.nameKor}</div>
+        <div style={{ fontSize: "0.7rem" }}>{list.nameEng}</div>
+        <div>{list.kcal}</div>
+        <div>{list.price}원</div>
+      </div>
     </li>
   ));
 

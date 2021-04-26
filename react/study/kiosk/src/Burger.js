@@ -63,19 +63,26 @@ function Burger({ onClickMenu, setVisible }) {
         textAlign: "center",
         border: "1px solid #ced4da",
         borderRadius: "16px",
-        padding: "1rem",
-        width: "270px",
+        width: "300px",
       }}
       onClick={() => {
         onClickMenu(list);
         setVisible(true);
       }}
     >
-      <img src={list.address} alt={"burger image"} width={"100px"} />
-      <span>{list.nameKor}</span>
-      <div>{list.nameEng}</div>
-      <div>{list.kcal}</div>
-      <div>{list.price}원</div>
+      <img
+        src={list.address}
+        alt={"burger"}
+        width={"90px"}
+        height={"90px"}
+        style={{ float: "left" }}
+      />
+      <div style={{ display: "inline-block" }}>
+        <div>{list.nameKor}</div>
+        <div style={{ fontSize: "0.7rem" }}>{list.nameEng}</div>
+        <div>{list.kcal}</div>
+        <div>{list.price}원</div>
+      </div>
     </li>
   ));
 

@@ -8,6 +8,7 @@ function Drink({ onClickMenu, setVisible }) {
       nameEng: "Jeju Hallabong Chiller",
       kcal: "236kcal",
       price: 100,
+      address: "/images/drink1.png",
     },
     {
       id: 2,
@@ -15,6 +16,7 @@ function Drink({ onClickMenu, setVisible }) {
       nameEng: "Apple Mango Chiller",
       kcal: "251kcal",
       price: 200,
+      address: "/images/drink2.png",
     },
     {
       id: 3,
@@ -22,6 +24,7 @@ function Drink({ onClickMenu, setVisible }) {
       nameEng: "Pear Chiller",
       kcal: "256kcal",
       price: 300,
+      address: "/images/drink3.png",
     },
     {
       id: 4,
@@ -29,6 +32,7 @@ function Drink({ onClickMenu, setVisible }) {
       nameEng: "Café Latte",
       kcal: "149kcal",
       price: 400,
+      address: "/images/drink4.png",
     },
     {
       id: 5,
@@ -36,6 +40,7 @@ function Drink({ onClickMenu, setVisible }) {
       nameEng: "Decaffeine Café Latte",
       kcal: "150kcal",
       price: 500,
+      address: "/images/drink5.png",
     },
     {
       id: 6,
@@ -43,6 +48,7 @@ function Drink({ onClickMenu, setVisible }) {
       nameEng: "Iced Café Latte",
       kcal: "108kcal",
       price: 600,
+      address: "/images/drink6.png",
     },
   ];
 
@@ -57,7 +63,6 @@ function Drink({ onClickMenu, setVisible }) {
         textAlign: "center",
         border: "1px solid #ced4da",
         borderRadius: "16px",
-        padding: "1rem",
         width: "270px",
       }}
       onClick={() => {
@@ -65,10 +70,19 @@ function Drink({ onClickMenu, setVisible }) {
         setVisible(true);
       }}
     >
-      <div>{list.nameKor}</div>
-      <div>{list.nameEng}</div>
-      <div>{list.kcal}</div>
-      <div>{list.price}원</div>
+      <img
+        src={list.address}
+        alt={"drinks"}
+        width={"90px"}
+        height={"90px"}
+        style={{ float: "left" }}
+      />
+      <div style={{ display: "inline-block" }}>
+        <div>{list.nameKor}</div>
+        <div style={{ fontSize: "0.7rem" }}>{list.nameEng}</div>
+        <div>{list.kcal}</div>
+        <div>{list.price}원</div>
+      </div>
     </li>
   ));
 

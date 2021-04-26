@@ -8,6 +8,7 @@ function Dessert({ onClickMenu, setVisible }) {
       nameEng: "Shanghai Chicken Snack Wrap",
       kcal: "283kcal",
       price: 100,
+      address: "/images/dessert1.png",
     },
     {
       id: 2,
@@ -15,6 +16,7 @@ function Dessert({ onClickMenu, setVisible }) {
       nameEng: "Golden Mozzarella Cheese Sticks",
       kcal: "162kcal",
       price: 200,
+      address: "/images/dessert2.png",
     },
     {
       id: 3,
@@ -22,6 +24,7 @@ function Dessert({ onClickMenu, setVisible }) {
       nameEng: "French Fries",
       kcal: "332kcal",
       price: 300,
+      address: "/images/dessert3.png",
     },
     {
       id: 4,
@@ -29,6 +32,7 @@ function Dessert({ onClickMenu, setVisible }) {
       nameEng: "McNuggets®",
       kcal: "171kcal",
       price: 400,
+      address: "/images/dessert4.png",
     },
     {
       id: 5,
@@ -36,6 +40,7 @@ function Dessert({ onClickMenu, setVisible }) {
       nameEng: "McSpicy® Chicken Tenders",
       kcal: "191kcal",
       price: 500,
+      address: "/images/dessert5.png",
     },
     {
       id: 6,
@@ -43,6 +48,7 @@ function Dessert({ onClickMenu, setVisible }) {
       nameEng: "Hash Brown",
       kcal: "159kcal",
       price: 600,
+      address: "/images/dessert6.png",
     },
   ];
 
@@ -65,10 +71,19 @@ function Dessert({ onClickMenu, setVisible }) {
         setVisible(true);
       }}
     >
-      <div>{list.nameKor}</div>
-      <div>{list.nameEng}</div>
-      <div>{list.kcal}</div>
-      <div>{list.price}원</div>
+      <img
+        src={list.address}
+        alt={"dessert"}
+        width={"90px"}
+        height={"90px"}
+        style={{ float: "left" }}
+      />
+      <div style={{ display: "inline-block" }}>
+        <div>{list.nameKor}</div>
+        <div style={{ fontSize: "0.7rem" }}>{list.nameEng}</div>
+        <div>{list.kcal}</div>
+        <div>{list.price}원</div>
+      </div>
     </li>
   ));
 

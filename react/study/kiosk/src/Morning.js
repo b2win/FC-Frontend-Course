@@ -8,6 +8,7 @@ function Morning({ onClickMenu, setVisible }) {
       nameEng: "BLT Egg Muffin",
       kcal: "327kcal",
       price: 100,
+      address: "/images/morning1.png",
     },
     {
       id: 2,
@@ -15,6 +16,7 @@ function Morning({ onClickMenu, setVisible }) {
       nameEng: "Chicken 'n Cheese Muffin",
       kcal: "452kcal",
       price: 200,
+      address: "/images/morning2.png",
     },
     {
       id: 3,
@@ -22,6 +24,7 @@ function Morning({ onClickMenu, setVisible }) {
       nameEng: "Egg McMuffin",
       kcal: "292kcal",
       price: 300,
+      address: "/images/morning3.png",
     },
     {
       id: 4,
@@ -29,6 +32,7 @@ function Morning({ onClickMenu, setVisible }) {
       nameEng: "Bacon Egg McMuffin",
       kcal: "290kcal",
       price: 400,
+      address: "/images/morning4.png",
     },
     {
       id: 5,
@@ -36,6 +40,7 @@ function Morning({ onClickMenu, setVisible }) {
       nameEng: "Sausage Egg McMuffin",
       kcal: "452kcal",
       price: 500,
+      address: "/images/morning5.png",
     },
     {
       id: 6,
@@ -43,6 +48,7 @@ function Morning({ onClickMenu, setVisible }) {
       nameEng: "Shanghai Chicken Snack Wrap",
       kcal: "283kcal",
       price: 600,
+      address: "/images/morning6.png",
     },
   ];
 
@@ -65,10 +71,19 @@ function Morning({ onClickMenu, setVisible }) {
         setVisible(true);
       }}
     >
-      <div>{list.nameKor}</div>
-      <div>{list.nameEng}</div>
-      <div>{list.kcal}</div>
-      <div>{list.price}원</div>
+      <img
+        src={list.address}
+        alt={"morning-menu"}
+        width={"90px"}
+        height={"90px"}
+        style={{ float: "left" }}
+      />
+      <div style={{ display: "inline-block" }}>
+        <div>{list.nameKor}</div>
+        <div style={{ fontSize: "0.7rem" }}>{list.nameEng}</div>
+        <div>{list.kcal}</div>
+        <div>{list.price}원</div>
+      </div>
     </li>
   ));
 
