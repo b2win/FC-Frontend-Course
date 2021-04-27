@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useCallback, useState } from "react";
 import { MdRemoveCircleOutline } from "react-icons/md";
 import KioskTemplate from "./KioskTemplete";
 import "./App.css";
@@ -41,30 +41,35 @@ function App() {
   const [total, setTotal] = useState("");
   const [visible, setVisible] = useState(false);
 
-  function reducer(state, action) {
-    switch (action.type) {
-      case "INCREASE":
-        return { value: state.value + 1 };
-      case "DECREASE":
-        return { value: state.value - 1 };
-      default:
-        return state;
-    }
-  }
-  const [state, dispatch] = useReducer(reducer, { value: 1 });
+  // function reducer(state, action) {
+  //   switch (action.type) {
+  //     case "INCREASE":
+  //       return { value: state.value + 1 };
+  //     case "DECREASE":
+  //       return { value: state.value - 1 };
+  //     default:
+  //       return state;
+  //   }
+  // }
+  // const [state, dispatch] = useReducer(reducer, { value: 1 });
 
-  const onClickMenu = (detail) => {
-    const addMenu = {
-      id: nextId,
-      korean: detail.nameKor,
-      menuPrice: detail.price,
-    };
-    setBasket(basket.concat(addMenu));
-    console.log(addMenu);
-    console.log(basket.menuPrice);
-    setNextId(nextId + 1);
-    setTotal((total + addMenu.menuPrice) * 1);
-  };
+  const onClickMenu = useCallback(
+    (detail) => {
+      const addMenu = {
+        id: nextId,
+        korean: detail.nameKor,
+        menuPrice: detail.price,
+      };
+      setBasket((prevBasket) => basket.concat(addMenu));
+      console.log(basket);
+
+      console.log(addMenu);
+      console.log(basket.menuPrice);
+      setNextId(nextId + 1);
+      setTotal((total + addMenu.menuPrice) * 1);
+    },
+    [basket, nextId, total]
+  );
 
   const category = [
     {
@@ -133,9 +138,6 @@ function App() {
     <li key={list.id}>
       <ListBlock>
         <div>{list.korean}</div>
-        {/* <div>{state.value}개</div>
-        <button onClick={() => dispatch({ type: "INCREASE" })}>+</button>
-        <button onClick={() => dispatch({ type: "DECREASE" })}>-</button> */}
         <div>{up + down}개</div>
         <button onClick={() => setUp(up + 1)}>+</button>
         <button onClick={() => setDown(down - 1)}>-</button>
