@@ -63,9 +63,10 @@ function App() {
     console.log(basket);
 
     console.log(addMenu);
-    console.log(basket.menuPrice);
+    console.log(addMenu[nextId].menuPrice);
+    console.log(nextId);
     setNextId(nextId + 1);
-    setTotal((total + addMenu.menuPrice) * 1);
+    setTotal((total + addMenu[nextId].menuPrice) * 1);
   };
   const category = [
     {
