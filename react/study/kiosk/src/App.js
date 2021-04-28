@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import { MdRemoveCircleOutline } from "react-icons/md";
 import KioskTemplate from "./KioskTemplete";
 import "./App.css";
@@ -53,24 +53,20 @@ function App() {
   // }
   // const [state, dispatch] = useReducer(reducer, { value: 1 });
 
-  const onClickMenu = useCallback(
-    (detail) => {
-      const addMenu = {
-        id: nextId,
-        korean: detail.nameKor,
-        menuPrice: detail.price,
-      };
-      setBasket((prevBasket) => basket.concat(addMenu));
-      console.log(basket);
+  const onClickMenu = (detail) => {
+    const addMenu = basket.concat({
+      id: nextId,
+      korean: detail.nameKor,
+      menuPrice: detail.price,
+    });
+    setBasket(addMenu);
+    console.log(basket);
 
-      console.log(addMenu);
-      console.log(basket.menuPrice);
-      setNextId(nextId + 1);
-      setTotal((total + addMenu.menuPrice) * 1);
-    },
-    [basket, nextId, total]
-  );
-
+    console.log(addMenu);
+    console.log(basket.menuPrice);
+    setNextId(nextId + 1);
+    setTotal((total + addMenu.menuPrice) * 1);
+  };
   const category = [
     {
       id: 1,
@@ -164,15 +160,22 @@ function App() {
   };
 
   return (
-    <KioskTemplate>
-      <h1>Welcome to McDonald's</h1>
-      <h1>카테고리</h1>
-      <div className="sideBar">
-        <ul>{categoryList}</ul>
-      </div>
-      <div>{display}</div>
-      {visible && <Total selectedMenu={selectedMenu} total={total} />}
-    </KioskTemplate>
+    <div
+      onContextMenu={(e) => {
+        e.preventDefault();
+        alert("마우스 오른쪽 버튼을 사용할 수 없습니다!");
+      }}
+    >
+      <KioskTemplate>
+        <h1>Welcome to McDonald's</h1>
+        <h1>카테고리</h1>
+        <div className="sideBar">
+          <ul>{categoryList}</ul>
+        </div>
+        <div>{display}</div>
+        {visible && <Total selectedMenu={selectedMenu} total={total} />}
+      </KioskTemplate>
+    </div>
   );
 }
 
