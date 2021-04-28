@@ -63,8 +63,6 @@ function App() {
     console.log(basket);
 
     console.log(addMenu);
-    console.log(addMenu[nextId].menuPrice);
-    console.log(nextId);
     setNextId(nextId + 1);
     setTotal((total + addMenu[nextId].menuPrice) * 1);
   };
