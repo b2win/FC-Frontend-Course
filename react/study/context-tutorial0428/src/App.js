@@ -1,16 +1,16 @@
 import "./App.css";
 import ColorBox from "./components/ColorBox";
-import ColorContext from "./context/color";
+import SelectColor from "./components/SelectColor";
+import { ColorProvider } from "./context/color";
 
 function App() {
   return (
-    <ColorContext.Provider
-      value={{ color: "green", 아무거나: "brown", fontSize: "50px" }}
-    >
+    <ColorProvider>
       <div>
+        <SelectColor />
         <ColorBox />
       </div>
-    </ColorContext.Provider>
+    </ColorProvider>
   );
 }
 
