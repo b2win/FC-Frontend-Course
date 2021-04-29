@@ -9,6 +9,7 @@ function Burger({ onClickMenu, setVisible }) {
       kcal: "342kcal",
       price: 100,
       address: "/images/burger1.png",
+      number: 1,
     },
     {
       id: 2,
@@ -17,6 +18,7 @@ function Burger({ onClickMenu, setVisible }) {
       kcal: "481kcal",
       price: 200,
       address: "/images/burger2.png",
+      number: 2,
     },
     {
       id: 3,
@@ -25,6 +27,7 @@ function Burger({ onClickMenu, setVisible }) {
       kcal: "536kcal",
       price: 300,
       address: "/images/burger3.png",
+      number: 3,
     },
     {
       id: 4,
@@ -33,6 +36,7 @@ function Burger({ onClickMenu, setVisible }) {
       kcal: "583kcal",
       price: 400,
       address: "/images/burger4.png",
+      number: 1,
     },
     {
       id: 5,
@@ -41,6 +45,7 @@ function Burger({ onClickMenu, setVisible }) {
       kcal: "494kcal",
       price: 500,
       address: "/images/burger5.png",
+      number: 1,
     },
     {
       id: 6,
@@ -49,6 +54,7 @@ function Burger({ onClickMenu, setVisible }) {
       kcal: "483kcal",
       price: 600,
       address: "/images/burger6.png",
+      number: 1,
     },
   ];
 

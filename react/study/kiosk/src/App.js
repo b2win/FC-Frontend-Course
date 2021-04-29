@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { MdRemoveCircleOutline } from "react-icons/md";
 import KioskTemplate from "./KioskTemplete";
 import "./App.css";
@@ -58,6 +58,7 @@ function App() {
       id: nextId,
       korean: detail.nameKor,
       menuPrice: detail.price,
+      number: detail.number,
     });
     setBasket(addMenu);
     console.log(basket);
@@ -106,10 +107,6 @@ function App() {
 
   // }
 
-  const [up, setUp] = useState(1);
-  const [down, setDown] = useState(0);
-  const number = up + down;
-
   const categoryList = category.map((list) => (
     <h3
       key={list.id}
@@ -129,14 +126,34 @@ function App() {
     </h3>
   ));
 
+  // const [up, setUp] = useState(0);
+  // const [down, setDown] = useState(0);
+  // const number = up + down;
+
+  // const setUp = (id) => {
+  //   if (basket.id === id) {
+  //     return Counter + 1;
+  //   }
+  // };
+
+  const setUp = useRef(1);
+  const setDown = useRef(1);
+
+  const [increse, setIncrease] = useState(basket);
+
+  const countUp = (number) => {
+    setBasket();
+  };
+
   const selectedMenu = basket.map((list) => (
     <li key={list.id}>
       <ListBlock>
         <div>{list.korean}</div>
-        <div>{up + down}개</div>
-        <button onClick={() => setUp(up + 1)}>+</button>
-        <button onClick={() => setDown(down - 1)}>-</button>
-        <div>{list.menuPrice * number}원</div>
+        <div>{list.number}개</div>
+        <button onClick={console.log(list.number + list.number + 1)}>+</button>
+        <button onClick={() => countUp(list.number)}>+</button>
+        <button onClick={() => setDown(list.number - 1)}>-</button>
+        <div>{list.menuPrice * list.number}원</div>
         <button onClick={() => onRemove(list.id)}>
           <MdRemoveCircleOutline
             style={{
@@ -149,6 +166,27 @@ function App() {
       </ListBlock>
     </li>
   ));
+
+  // const selectedMenu = basket.map((list) => (
+  //   <li key={list.id}>
+  //     <ListBlock>
+  //       <div>{list.korean}</div>
+  //       <div>{up + down}개</div>
+  //       <button onClick={() => setUp(up + 1)}>+</button>
+  //       <button onClick={() => setDown(down - 1)}>-</button>
+  //       <div>{list.menuPrice * number}원</div>
+  //       <button onClick={() => onRemove(list.id)}>
+  //         <MdRemoveCircleOutline
+  //           style={{
+  //             color: "red",
+  //             position: "absolute",
+  //           }}
+  //         />
+  //         &nbsp;&nbsp;&nbsp; Cancel
+  //       </button>
+  //     </ListBlock>
+  //   </li>
+  // ));
 
   const onRemove = (id) => {
     const removeList = basket.filter((list) => list.id !== id);
