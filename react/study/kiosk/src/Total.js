@@ -2,7 +2,7 @@ import React from "react";
 
 function Total({ selectedMenu, total }) {
   return (
-    <div>
+    <div style={{ width: "650px" }}>
       <h2>선택된 메뉴</h2>
       <ul>{selectedMenu}</ul>
       <div style={{ fontSize: "2rem", marginLeft: "15rem" }}>

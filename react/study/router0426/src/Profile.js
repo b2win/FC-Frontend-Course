@@ -15,8 +15,12 @@ const data = {
 };
 
 function Profile({ match }) {
+  console.log(match);
   const { username } = match.params;
+  console.log(username);
   const profile = data[username];
+  console.log(profile);
+
   if (!profile) {
     <div>존재하지 않는 사용자입니다.</div>;
   }

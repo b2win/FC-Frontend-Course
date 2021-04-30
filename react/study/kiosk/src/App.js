@@ -139,7 +139,7 @@ function App() {
   const setUp = useRef(1);
   const setDown = useRef(1);
 
-  const [increse, setIncrease] = useState(basket);
+  const [increase, setIncrease] = useState();
 
   const countUp = (number) => {
     setBasket();
@@ -150,8 +150,7 @@ function App() {
       <ListBlock>
         <div>{list.korean}</div>
         <div>{list.number}개</div>
-        <button onClick={console.log(list.number + list.number + 1)}>+</button>
-        <button onClick={() => countUp(list.number)}>+</button>
+        <button onClick={() => setDown.current + 1}>+</button>
         <button onClick={() => setDown(list.number - 1)}>-</button>
         <div>{list.menuPrice * list.number}원</div>
         <button onClick={() => onRemove(list.id)}>
