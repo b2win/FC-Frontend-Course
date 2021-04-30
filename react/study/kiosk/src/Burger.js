@@ -74,9 +74,6 @@ function Burger({ onClickMenu, setVisible }) {
       onClick={() => {
         setVisible(true);
         onClickMenu(list);
-        console.log();
-        // console.log(onClickMenu);
-        // console.log(onClickMenu);
       }}
     >
       <img
