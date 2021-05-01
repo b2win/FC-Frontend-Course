@@ -1,6 +1,6 @@
 import React from "react";
 
-function Drink({ onClickMenu, setVisible }) {
+function Drink({ onClickMenu }) {
   const drink = [
     {
       id: 1,
@@ -67,7 +67,6 @@ function Drink({ onClickMenu, setVisible }) {
       }}
       onClick={() => {
         onClickMenu(list);
-        setVisible(true);
       }}
     >
       <img

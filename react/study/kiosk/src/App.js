@@ -37,9 +37,8 @@ function App() {
 
   const [basket, setBasket] = useState([]);
   const [nextId, setNextId] = useState(0);
-  const [display, setDisplay] = useState("");
+  const [display, setDisplay] = useState(<Burger />);
   const [total, setTotal] = useState("");
-  const [visible, setVisible] = useState(false);
 
   const onClickMenu = (detail) => {
     const howMany = prompt(detail.nameKor + "의 수량을 입력해 주세요!");
@@ -52,6 +51,8 @@ function App() {
     });
     setBasket(addMenu);
     setNextId(nextId + 1);
+    console.log(nextId);
+    console.log(basket);
     setTotal(
       Math.abs(total + addMenu[nextId].menuPrice * addMenu[nextId].want) * 1
     );
@@ -61,27 +62,27 @@ function App() {
     {
       id: 1,
       name: "버거",
-      value: <Burger onClickMenu={onClickMenu} setVisible={setVisible} />,
+      value: <Burger onClickMenu={onClickMenu} />,
     },
     {
       id: 2,
       name: "맥카페 & 음료",
-      value: <Drink onClickMenu={onClickMenu} setVisible={setVisible} />,
+      value: <Drink onClickMenu={onClickMenu} />,
     },
     {
       id: 3,
       name: "사이드 & 디저트",
-      value: <Dessert onClickMenu={onClickMenu} setVisible={setVisible} />,
+      value: <Dessert onClickMenu={onClickMenu} />,
     },
     {
       id: 4,
       name: "맥모닝",
-      value: <Morning onClickMenu={onClickMenu} setVisible={setVisible} />,
+      value: <Morning onClickMenu={onClickMenu} />,
     },
     {
       id: 5,
       name: "맥런치",
-      value: <Lunch onClickMenu={onClickMenu} setVisible={setVisible} />,
+      value: <Lunch onClickMenu={onClickMenu} />,
     },
   ];
 
@@ -170,8 +171,9 @@ function App() {
         <div className="sideBar">
           <ul>{categoryList}</ul>
         </div>
-        <div>{display}</div>
-        {visible && <Total selectedMenu={selectedMenu} total={total} />}
+        <Burger onClickMenu={onClickMenu} />
+        {display}
+        <Total selectedMenu={selectedMenu} total={total} />
       </KioskTemplate>
     </div>
   );

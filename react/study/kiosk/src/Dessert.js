@@ -1,6 +1,6 @@
 import React from "react";
 
-function Dessert({ onClickMenu, setVisible }) {
+function Dessert({ onClickMenu }) {
   const dessert = [
     {
       id: 1,
@@ -68,7 +68,6 @@ function Dessert({ onClickMenu, setVisible }) {
       }}
       onClick={() => {
         onClickMenu(list);
-        setVisible(true);
       }}
     >
       <img

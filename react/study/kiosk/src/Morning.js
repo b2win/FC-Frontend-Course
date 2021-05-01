@@ -1,6 +1,6 @@
 import React from "react";
 
-function Morning({ onClickMenu, setVisible }) {
+function Morning({ onClickMenu }) {
   const morning = [
     {
       id: 1,
@@ -68,7 +68,6 @@ function Morning({ onClickMenu, setVisible }) {
       }}
       onClick={() => {
         onClickMenu(list);
-        setVisible(true);
       }}
     >
       <img
