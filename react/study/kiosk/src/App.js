@@ -87,6 +87,7 @@ function App() {
   ];
 
   const onClickSidebarMenu = (id) => {
+    console.log(category[0].id);
     setDisplay(category.map((list) => list.id === id && list.value));
   };
 
@@ -171,7 +172,7 @@ function App() {
         <div className="sideBar">
           <ul>{categoryList}</ul>
         </div>
-        <Burger onClickMenu={onClickMenu} />
+        {/* <Burger onClickMenu={onClickMenu} /> */}
         {display}
         <Total selectedMenu={selectedMenu} total={total} />
       </KioskTemplate>
