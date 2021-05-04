@@ -86,11 +86,6 @@ function App() {
     },
   ];
 
-  const onClickSidebarMenu = (id) => {
-    console.log(category[0].id);
-    setDisplay(category.map((list) => list.id === id && list.value));
-  };
-
   const categoryList = category.map((list) => (
     <h3
       key={list.id}
@@ -110,6 +105,24 @@ function App() {
     </h3>
   ));
 
+  const onClickSidebarMenu = (id) => {
+    const updateCategory = category.map((list) => {
+      if (list.id === id && list.value) {
+        console.log(list);
+        return list.value;
+      }
+      console.log(list.value);
+      return !list.value;
+    });
+    console.log(updateCategory);
+    setDisplay(updateCategory);
+    console.log(display);
+
+    // setDisplay(category.map((list) => list.id === id && list.value));
+    // console.log(display);
+    // console.log(category[id]);
+  };
+
   const countUp = (id) => {
     const basketUpdate = basket.map((menu) => {
       if (menu.id === id) {
@@ -118,6 +131,7 @@ function App() {
       return menu;
     });
     setBasket(basketUpdate);
+    console.log(basket);
   };
 
   const countDown = (id) => {
