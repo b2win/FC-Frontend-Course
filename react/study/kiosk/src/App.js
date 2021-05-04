@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { MdRemoveCircleOutline } from "react-icons/md";
 import KioskTemplate from "./KioskTemplete";
+import CategoryTemplate from "./CategoryTemplate";
 import "./App.css";
 import Burger from "./Burger";
 import Dessert from "./Dessert";
@@ -49,8 +50,6 @@ function App() {
     });
     setBasket(addMenu);
     setNextId(nextId + 1);
-    console.log(nextId);
-    console.log(basket);
     setTotal(
       Math.abs(total + addMenu[nextId].menuPrice * addMenu[nextId].number) * 1
     );
@@ -85,31 +84,18 @@ function App() {
   ];
 
   const categoryList = category.map((list) => (
-    <h3
-      key={list.id}
-      style={{
-        cursor: "pointer",
-        fontWeight: "bold",
-        background: "#dee2e6",
-        height: "30px",
-        width: "600px",
-        textAlign: "center",
-        padding: 0,
-        borderRadius: "16px",
-      }}
-      onClick={() => onClickSidebarMenu(list.id)}
-    >
-      {list.name}
-    </h3>
+    <CategoryTemplate>
+      <h3 key={list.id} onClick={() => onClickSidebarMenu(list.id)}>
+        {list.name}
+      </h3>
+    </CategoryTemplate>
   ));
 
   const onClickSidebarMenu = (id) => {
     const updateCategory = category.map((list) => {
       if (list.id === id && list.value) {
-        console.log(list);
         return list.value;
       }
-      console.log(list.value);
       return !list.value;
     });
     console.log(updateCategory);
@@ -210,8 +196,13 @@ function App() {
       <KioskTemplate>
         <h1>Welcome to McDonald's</h1>
         <h1>카테고리</h1>
-        <div className="sideBar">
-          <ul>{categoryList}</ul>
+        <div className="sideBar" style={{ height: "260px" }}>
+          <ul>
+            {categoryList}
+            {/* <CategoryTemplate>
+              <h3 onClick={() => onClickSidebarMenu}>햄버거</h3>
+            </CategoryTemplate> */}
+          </ul>
         </div>
         {/* <Burger onClickMenu={onClickMenu} /> */}
         {display}
