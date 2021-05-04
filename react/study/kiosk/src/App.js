@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdRemoveCircleOutline } from "react-icons/md";
 import KioskTemplate from "./KioskTemplete";
 import CategoryTemplate from "./CategoryTemplate";
@@ -40,20 +40,34 @@ function App() {
   const [nextId, setNextId] = useState(0);
   const [display, setDisplay] = useState();
   const [total, setTotal] = useState("");
+  const [onClickCategory, setOnClickCategory] = useState("burgerList");
 
   const onClickMenu = (detail) => {
-    const addMenu = basket.concat({
+    const addMenu = {
       id: nextId,
       korean: detail.nameKor,
       menuPrice: detail.price,
       number: detail.number,
-    });
-    setBasket(addMenu);
+    };
+    setBasket((add) => add.concat(addMenu));
     setNextId(nextId + 1);
-    setTotal(
-      Math.abs(total + addMenu[nextId].menuPrice * addMenu[nextId].number) * 1
-    );
+    console.log(addMenu.menuPrice);
+    setTotal(Math.abs(total + addMenu.menuPrice * addMenu.number) * 1);
   };
+
+  // const onClickMenu = (detail) => {
+  //   const addMenu = basket.concat({
+  //     id: nextId,
+  //     korean: detail.nameKor,
+  //     menuPrice: detail.price,
+  //     number: detail.number,
+  //   });
+  //   setBasket(addMenu);
+  //   setNextId(nextId + 1);
+  //   setTotal(
+  //     Math.abs(total + addMenu[nextId].menuPrice * addMenu[nextId].number) * 1
+  //   );
+  // };
 
   const category = [
     {
@@ -85,18 +99,18 @@ function App() {
 
   const categoryList = category.map((list) => (
     <CategoryTemplate>
-      <h3 key={list.id} onClick={() => onClickSidebarMenu(list.id)}>
+      <h3 key={list.id} onClick={() => selectCategoryList(list.id)}>
         {list.name}
       </h3>
     </CategoryTemplate>
   ));
 
-  const onClickSidebarMenu = (id) => {
+  const selectCategoryList = (id) => {
     const updateCategory = category.map((list) => {
-      if (list.id === id && list.value) {
-        return list.value;
+      if (list.id !== id) {
+        return null;
       }
-      return !list.value;
+      return list.value;
     });
     console.log(updateCategory);
     setDisplay(updateCategory);
@@ -114,7 +128,9 @@ function App() {
       }
       return menu;
     });
+    console.log(basketUpdate);
     setBasket(basketUpdate);
+    console.log(basket);
     setTotal(total + basket[id].menuPrice);
   };
 
