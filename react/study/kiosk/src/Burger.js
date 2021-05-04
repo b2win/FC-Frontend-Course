@@ -18,7 +18,7 @@ function Burger({ onClickMenu }) {
       kcal: "481kcal",
       price: 200,
       address: "/images/burger2.png",
-      number: 2,
+      number: 1,
     },
     {
       id: 3,
@@ -27,7 +27,7 @@ function Burger({ onClickMenu }) {
       kcal: "536kcal",
       price: 300,
       address: "/images/burger3.png",
-      number: 3,
+      number: 1,
     },
     {
       id: 4,

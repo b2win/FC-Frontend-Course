@@ -9,6 +9,7 @@ function Morning({ onClickMenu }) {
       kcal: "327kcal",
       price: 100,
       address: "/images/morning1.png",
+      number: 1,
     },
     {
       id: 2,
@@ -17,6 +18,7 @@ function Morning({ onClickMenu }) {
       kcal: "452kcal",
       price: 200,
       address: "/images/morning2.png",
+      number: 1,
     },
     {
       id: 3,
@@ -25,6 +27,7 @@ function Morning({ onClickMenu }) {
       kcal: "292kcal",
       price: 300,
       address: "/images/morning3.png",
+      number: 1,
     },
     {
       id: 4,
@@ -33,6 +36,7 @@ function Morning({ onClickMenu }) {
       kcal: "290kcal",
       price: 400,
       address: "/images/morning4.png",
+      number: 1,
     },
     {
       id: 5,
@@ -41,6 +45,7 @@ function Morning({ onClickMenu }) {
       kcal: "452kcal",
       price: 500,
       address: "/images/morning5.png",
+      number: 1,
     },
     {
       id: 6,
@@ -49,6 +54,7 @@ function Morning({ onClickMenu }) {
       kcal: "283kcal",
       price: 600,
       address: "/images/morning6.png",
+      number: 1,
     },
   ];
 

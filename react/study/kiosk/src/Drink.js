@@ -9,6 +9,7 @@ function Drink({ onClickMenu }) {
       kcal: "236kcal",
       price: 100,
       address: "/images/drink1.png",
+      number: 1,
     },
     {
       id: 2,
@@ -17,6 +18,7 @@ function Drink({ onClickMenu }) {
       kcal: "251kcal",
       price: 200,
       address: "/images/drink2.png",
+      number: 1,
     },
     {
       id: 3,
@@ -25,6 +27,7 @@ function Drink({ onClickMenu }) {
       kcal: "256kcal",
       price: 300,
       address: "/images/drink3.png",
+      number: 1,
     },
     {
       id: 4,
@@ -33,6 +36,7 @@ function Drink({ onClickMenu }) {
       kcal: "149kcal",
       price: 400,
       address: "/images/drink4.png",
+      number: 1,
     },
     {
       id: 5,
@@ -41,6 +45,7 @@ function Drink({ onClickMenu }) {
       kcal: "150kcal",
       price: 500,
       address: "/images/drink5.png",
+      number: 1,
     },
     {
       id: 6,
@@ -49,6 +54,7 @@ function Drink({ onClickMenu }) {
       kcal: "108kcal",
       price: 600,
       address: "/images/drink6.png",
+      number: 1,
     },
   ];
 

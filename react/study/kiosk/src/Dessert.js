@@ -9,6 +9,7 @@ function Dessert({ onClickMenu }) {
       kcal: "283kcal",
       price: 100,
       address: "/images/dessert1.png",
+      number: 1,
     },
     {
       id: 2,
@@ -17,6 +18,7 @@ function Dessert({ onClickMenu }) {
       kcal: "162kcal",
       price: 200,
       address: "/images/dessert2.png",
+      number: 1,
     },
     {
       id: 3,
@@ -25,6 +27,7 @@ function Dessert({ onClickMenu }) {
       kcal: "332kcal",
       price: 300,
       address: "/images/dessert3.png",
+      number: 1,
     },
     {
       id: 4,
@@ -33,7 +36,9 @@ function Dessert({ onClickMenu }) {
       kcal: "171kcal",
       price: 400,
       address: "/images/dessert4.png",
+      number: 1,
     },
+
     {
       id: 5,
       nameKor: "맥스파이시®치킨 텐더",
@@ -41,6 +46,7 @@ function Dessert({ onClickMenu }) {
       kcal: "191kcal",
       price: 500,
       address: "/images/dessert5.png",
+      number: 1,
     },
     {
       id: 6,
@@ -49,6 +55,7 @@ function Dessert({ onClickMenu }) {
       kcal: "159kcal",
       price: 600,
       address: "/images/dessert6.png",
+      number: 1,
     },
   ];
 

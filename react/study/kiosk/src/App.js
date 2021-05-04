@@ -41,20 +41,18 @@ function App() {
   const [total, setTotal] = useState("");
 
   const onClickMenu = (detail) => {
-    const howMany = prompt(detail.nameKor + "의 수량을 입력해 주세요!");
     const addMenu = basket.concat({
       id: nextId,
       korean: detail.nameKor,
       menuPrice: detail.price,
       number: detail.number,
-      want: Math.abs(howMany).toFixed(0) || 1,
     });
     setBasket(addMenu);
     setNextId(nextId + 1);
     console.log(nextId);
     console.log(basket);
     setTotal(
-      Math.abs(total + addMenu[nextId].menuPrice * addMenu[nextId].want) * 1
+      Math.abs(total + addMenu[nextId].menuPrice * addMenu[nextId].number) * 1
     );
   };
 
@@ -126,7 +124,7 @@ function App() {
   const countUp = (id) => {
     const basketUpdate = basket.map((menu) => {
       if (menu.id === id) {
-        return { ...menu, want: menu.want * 1 + 1 };
+        return { ...menu, number: menu.number * 1 + 1 };
       }
       return menu;
     });
@@ -136,8 +134,8 @@ function App() {
 
   const countDown = (id) => {
     const basketUpdate = basket.map((menu) => {
-      if (menu.id === id && menu.want > 1) {
-        return { ...menu, want: menu.want - 1 };
+      if (menu.id === id && menu.number > 1) {
+        return { ...menu, number: menu.number - 1 };
       }
       return menu;
     });
@@ -149,14 +147,14 @@ function App() {
     <li key={list.id}>
       <ListBlock>
         <div style={{ width: "300px" }}>{list.korean}</div>
-        <div style={{ width: "50px" }}>{list.want}개</div>
+        <div style={{ width: "50px" }}>{list.number}개</div>
         <button style={{ width: "20px" }} onClick={() => countUp(list.id)}>
           +
         </button>
         <button style={{ width: "20px" }} onClick={() => countDown(list.id)}>
           -
         </button>
-        <div style={{ width: "80px" }}>{list.menuPrice * list.want}원</div>
+        <div style={{ width: "80px" }}>{list.menuPrice * list.number}원</div>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button onClick={() => onRemove(list.id)}>
           <MdRemoveCircleOutline
@@ -197,7 +195,7 @@ function App() {
     const subtractPrice = basket.filter((list) => list.id === id);
     setBasket(removeList);
     setNextId(nextId - 1);
-    setTotal(total - subtractPrice[0].menuPrice * subtractPrice[0].want);
+    setTotal(total - subtractPrice[0].menuPrice * subtractPrice[0].number);
   };
 
   return (
