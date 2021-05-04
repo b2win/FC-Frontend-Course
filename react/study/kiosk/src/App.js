@@ -131,7 +131,7 @@ function App() {
       return menu;
     });
     setBasket(basketUpdate);
-    console.log(basket);
+    setTotal(total + basket[id].menuPrice);
   };
 
   const countDown = (id) => {
@@ -142,6 +142,7 @@ function App() {
       return menu;
     });
     setBasket(basketUpdate);
+    setTotal(total - basket[id].menuPrice);
   };
 
   const selectedMenu = basket.map((list) => (
