@@ -37,7 +37,7 @@ function App() {
 
   const [basket, setBasket] = useState([]);
   const [nextId, setNextId] = useState(0);
-  const [display, setDisplay] = useState(<Burger />);
+  const [display, setDisplay] = useState();
   const [total, setTotal] = useState("");
 
   const onClickMenu = (detail) => {
@@ -110,11 +110,33 @@ function App() {
     </h3>
   ));
 
+  const countUp = (id) => {
+    const basketUpdate = basket.map((menu) => {
+      if (menu.id === id) {
+        return { ...menu, want: menu.want + 1 };
+      }
+      return menu;
+    });
+    setBasket(basketUpdate);
+  };
+
+  const countDown = (id) => {
+    const basketUpdate = basket.map((menu) => {
+      if (menu.id === id) {
+        return { ...menu, want: menu.want - 1 };
+      }
+      return menu;
+    });
+    setBasket(basketUpdate);
+  };
+
   const selectedMenu = basket.map((list) => (
     <li key={list.id}>
       <ListBlock>
         <div>{list.korean}</div>
         <div>{list.want}개</div>
+        <button onClick={() => countUp(list.id)}>+</button>
+        <button onClick={() => countDown(list.id)}>-</button>
         <div>{list.menuPrice * list.want}원</div>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button onClick={() => onRemove(list.id)}>
