@@ -960,28 +960,26 @@ function reducer() {
 
 var store = (0, _redux.createStore)(reducer);
 
+var render = function render() {
+  var state = store.getState();
+
+  if (state.toggle) {
+    divToggle.classList.add("active");
+  } else {
+    divToggle.classList.remove("active");
+  }
+
+  counter.innerText = state.counter;
+};
+
+render();
+store.subscribe(render);
+
 var listener = function listener() {
   console.log("상태가 업데이트 됨");
 };
 
 var unsubscribe = store.subscribe(listener); // unsubscribe();
-
-var render = function render() {
-  var state = store.getState();
-
-  if (state.toggle) {
-    if (state.toggle) {
-      divToggle.classList.add("active");
-    } else {
-      divToggle.classList.remove("active");
-    }
-
-    counter.innerText = state.counter;
-  }
-};
-
-render();
-store.subscribe(render);
 
 divToggle.onclick = function () {
   store.dispatch(toggleSwitch());
@@ -1022,7 +1020,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61754" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52630" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
