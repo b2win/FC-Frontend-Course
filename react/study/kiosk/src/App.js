@@ -47,7 +47,7 @@ function App() {
       korean: detail.nameKor,
       menuPrice: detail.price,
       number: detail.number,
-      want: Math.abs(howMany) || 1,
+      want: Math.abs(howMany).toFixed(0) || 1,
     });
     setBasket(addMenu);
     setNextId(nextId + 1);
@@ -113,7 +113,7 @@ function App() {
   const countUp = (id) => {
     const basketUpdate = basket.map((menu) => {
       if (menu.id === id) {
-        return { ...menu, want: menu.want + 1 };
+        return { ...menu, want: menu.want * 1 + 1 };
       }
       return menu;
     });
@@ -122,7 +122,7 @@ function App() {
 
   const countDown = (id) => {
     const basketUpdate = basket.map((menu) => {
-      if (menu.id === id) {
+      if (menu.id === id && menu.want > 1) {
         return { ...menu, want: menu.want - 1 };
       }
       return menu;
@@ -133,11 +133,15 @@ function App() {
   const selectedMenu = basket.map((list) => (
     <li key={list.id}>
       <ListBlock>
-        <div>{list.korean}</div>
-        <div>{list.want}개</div>
-        <button onClick={() => countUp(list.id)}>+</button>
-        <button onClick={() => countDown(list.id)}>-</button>
-        <div>{list.menuPrice * list.want}원</div>
+        <div style={{ width: "300px" }}>{list.korean}</div>
+        <div style={{ width: "50px" }}>{list.want}개</div>
+        <button style={{ width: "20px" }} onClick={() => countUp(list.id)}>
+          +
+        </button>
+        <button style={{ width: "20px" }} onClick={() => countDown(list.id)}>
+          -
+        </button>
+        <div style={{ width: "80px" }}>{list.menuPrice * list.want}원</div>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button onClick={() => onRemove(list.id)}>
           <MdRemoveCircleOutline
