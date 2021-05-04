@@ -132,15 +132,17 @@ function App() {
     setTotal(total + basket[id].menuPrice);
   };
 
-  const countDown = (id) => {
+  const countDown = (list) => {
     const basketUpdate = basket.map((menu) => {
-      if (menu.id === id && menu.number > 1) {
+      if (menu.id === list.id && menu.number > 1) {
         return { ...menu, number: menu.number - 1 };
       }
       return menu;
     });
     setBasket(basketUpdate);
-    setTotal(total - basket[id].menuPrice);
+    if (list.number > 1) {
+      setTotal(total - basket[list.id].menuPrice);
+    }
   };
 
   const selectedMenu = basket.map((list) => (
@@ -151,7 +153,7 @@ function App() {
         <button style={{ width: "20px" }} onClick={() => countUp(list.id)}>
           +
         </button>
-        <button style={{ width: "20px" }} onClick={() => countDown(list.id)}>
+        <button style={{ width: "20px" }} onClick={() => countDown(list)}>
           -
         </button>
         <div style={{ width: "80px" }}>{list.menuPrice * list.number}원</div>
