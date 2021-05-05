@@ -122,28 +122,46 @@ function App() {
   };
 
   const countUp = (list) => {
-    const basketUpdate = basket.map((menu) => {
-      if (menu.id === list.id) {
-        return { ...menu, number: menu.number * 1 + 1 };
-      }
-      return menu;
-    });
+    const basketUpdate = basket.map((menu) =>
+      menu.id === list.id ? { ...menu, number: menu.number + 1 } : menu
+    );
     setBasket(basketUpdate);
     console.log(basketUpdate);
     console.log(basketUpdate[list.id]); //메뉴 삭제시 아이디 업데이트 안됌.
     total.current += basketUpdate[list.id].menuPrice; //id 때문에 버그 발생
   };
+  // const countUp = (list) => {
+  //   const basketUpdate = basket.map((menu) => {
+  //     if (menu.id === list.id) {
+  //       return { ...menu, number: menu.number * 1 + 1 };
+  //     }
+  //     return menu;
+  //   });
+  //   setBasket(basketUpdate);
+  //   console.log(basketUpdate);
+  //   console.log(basketUpdate[list.id]); //메뉴 삭제시 아이디 업데이트 안됌.
+  //   total.current += basketUpdate[list.id].menuPrice; //id 때문에 버그 발생
+  // };
 
   const countDown = (list) => {
-    const basketUpdate = basket.map((menu) => {
-      if (menu.id === list.id && menu.number > 1) {
-        return { ...menu, number: menu.number - 1 };
-      }
-      return menu;
-    });
+    const basketUpdate = basket.map((menu) =>
+      menu.id === list.id && list.number > 1
+        ? { ...menu, number: menu.number - 1 }
+        : menu
+    );
     setBasket(basketUpdate);
     if (list.number > 1) total.current -= basketUpdate[list.id].menuPrice;
   };
+  // const countDown = (list) => {
+  //   const basketUpdate = basket.map((menu) => {
+  //     if (menu.id === list.id && menu.number > 1) {
+  //       return { ...menu, number: menu.number - 1 };
+  //     }
+  //     return menu;
+  //   });
+  //   setBasket(basketUpdate);
+  //   if (list.number > 1) total.current -= basketUpdate[list.id].menuPrice;
+  // };
 
   const selectedMenu = basket.map((list) => (
     <li key={uuidv4()}>
