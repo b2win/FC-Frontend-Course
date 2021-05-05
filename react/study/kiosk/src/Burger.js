@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 
 function Burger({ onClickMenu }) {
   const burger = [
@@ -60,7 +61,7 @@ function Burger({ onClickMenu }) {
 
   const burgerList = burger.map((list) => (
     <li
-      key={list.id}
+      key={uuidv4()}
       style={{
         cursor: "pointer",
         fontWeight: "bold",

@@ -10,6 +10,7 @@ import Lunch from "./Lunch";
 import Morning from "./Morning";
 import Total from "./Total";
 import styled from "styled-components";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const ListBlock = styled.div`
@@ -52,6 +53,7 @@ function App() {
     };
     setBasket((add) => add.concat(addMenu));
     nextId.current += 1;
+    console.log(nextId.current);
     total.current += addMenu.menuPrice;
   };
 
@@ -99,7 +101,7 @@ function App() {
 
   const categoryList = category.map((list) => (
     <CategoryTemplate>
-      <h3 key={list.id} onClick={() => selectCategoryList(list.id)}>
+      <h3 key={uuidv4()} onClick={() => selectCategoryList(list.id)}>
         {list.name}
       </h3>
     </CategoryTemplate>
@@ -119,15 +121,17 @@ function App() {
     // console.log(category[id]);
   };
 
-  const countUp = (id) => {
+  const countUp = (list) => {
     const basketUpdate = basket.map((menu) => {
-      if (menu.id === id) {
+      if (menu.id === list.id) {
         return { ...menu, number: menu.number * 1 + 1 };
       }
       return menu;
     });
     setBasket(basketUpdate);
-    total.current += basketUpdate[id].menuPrice;
+    console.log(basketUpdate);
+    console.log(basketUpdate[list.id]); //메뉴 삭제시 아이디 업데이트 안됌.
+    total.current += basketUpdate[list.id].menuPrice; //id 때문에 버그 발생
   };
 
   const countDown = (list) => {
@@ -139,16 +143,14 @@ function App() {
     });
     setBasket(basketUpdate);
     if (list.number > 1) total.current -= basketUpdate[list.id].menuPrice;
-    if (list.number > 1) {
-    }
   };
 
   const selectedMenu = basket.map((list) => (
-    <li key={list.id}>
+    <li key={uuidv4()}>
       <ListBlock>
         <div style={{ width: "300px" }}>{list.korean}</div>
         <div style={{ width: "60px" }}>{list.number}개</div>
-        <button style={{ width: "20px" }} onClick={() => countUp(list.id)}>
+        <button style={{ width: "20px" }} onClick={() => countUp(list)}>
           +
         </button>
         <button style={{ width: "20px" }} onClick={() => countDown(list)}>
@@ -193,7 +195,10 @@ function App() {
   const onRemove = (id) => {
     const removeList = basket.filter((list) => list.id !== id);
     const subtractPrice = basket.filter((list) => list.id === id);
+    console.log(removeList);
     setBasket(removeList);
+    // nextId.current += 1;
+    // console.log(nextId.current);
     total.current -= subtractPrice[0].menuPrice * subtractPrice[0].number;
   };
 
