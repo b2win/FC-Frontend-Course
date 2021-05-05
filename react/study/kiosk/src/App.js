@@ -53,23 +53,8 @@ function App() {
     };
     setBasket((add) => add.concat(addMenu));
     nextId.current += 1;
-    console.log(nextId.current);
     total.current += addMenu.menuPrice;
   };
-
-  // const onClickMenu = (detail) => {
-  //   const addMenu = basket.concat({
-  //     id: nextId,
-  //     korean: detail.nameKor,
-  //     menuPrice: detail.price,
-  //     number: detail.number,
-  //   });
-  //   setBasket(addMenu);
-  //   setNextId(nextId + 1);
-  //   setTotal(
-  //     Math.abs(total + addMenu[nextId].menuPrice * addMenu[nextId].number) * 1
-  //   );
-  // };
 
   const category = [
     {
@@ -115,37 +100,17 @@ function App() {
       return list.value;
     });
     setDisplay(updateCategory);
-
-    // setDisplay(category.map((list) => list.id === id && list.value));
-    // console.log(display);
-    // console.log(category[id]);
   };
 
   const countUp = (list) => {
     const basketUpdate = basket.map((menu) =>
       menu.id === list.id ? { ...menu, number: menu.number + 1 } : menu
     );
-    const changeTotal = basket.map((menu) =>
+    basket.map((menu) =>
       menu.id === list.id ? (total.current += menu.menuPrice) : menu
     );
     setBasket(basketUpdate);
-    console.log(basketUpdate);
-    // console.log(basketUpdate[list.id]); //메뉴 삭제시 아이디 업데이트 안됌.
-    // total.current += basketUpdate[list.id].menuPrice; //id 때문에 버그 발생
-    console.log(changeTotal);
   };
-  // const countUp = (list) => {
-  //   const basketUpdate = basket.map((menu) => {
-  //     if (menu.id === list.id) {
-  //       return { ...menu, number: menu.number * 1 + 1 };
-  //     }
-  //     return menu;
-  //   });
-  //   setBasket(basketUpdate);
-  //   console.log(basketUpdate);
-  //   console.log(basketUpdate[list.id]); //메뉴 삭제시 아이디 업데이트 안됌.
-  //   total.current += basketUpdate[list.id].menuPrice; //id 때문에 버그 발생
-  // };
 
   const countDown = (list) => {
     const basketUpdate = basket.map((menu) =>
@@ -153,25 +118,13 @@ function App() {
         ? { ...menu, number: menu.number - 1 }
         : menu
     );
-    const changeTotal = basket.map((menu) =>
+    basket.map((menu) =>
       menu.id === list.id && list.number > 1
         ? (total.current -= menu.menuPrice)
         : menu
     );
-    console.log(changeTotal);
     setBasket(basketUpdate);
-    // if (list.number > 1) total.current -= basketUpdate[list.id].menuPrice;
   };
-  // const countDown = (list) => {
-  //   const basketUpdate = basket.map((menu) => {
-  //     if (menu.id === list.id && menu.number > 1) {
-  //       return { ...menu, number: menu.number - 1 };
-  //     }
-  //     return menu;
-  //   });
-  //   setBasket(basketUpdate);
-  //   if (list.number > 1) total.current -= basketUpdate[list.id].menuPrice;
-  // };
 
   const selectedMenu = basket.map((list) => (
     <li key={uuidv4()}>
@@ -199,34 +152,10 @@ function App() {
     </li>
   ));
 
-  // const selectedMenu = basket.map((list) => (
-  //   <li key={list.id}>
-  //     <ListBlock>
-  //       <div>{list.korean}</div>
-  //       <div>{up + down}개</div>
-  //       <button onClick={() => setUp(up + 1)}>+</button>
-  //       <button onClick={() => setDown(down - 1)}>-</button>
-  //       <div>{list.menuPrice * number}원</div>
-  //       <button onClick={() => onRemove(list.id)}>
-  //         <MdRemoveCircleOutline
-  //           style={{
-  //             color: "red",
-  //             position: "absolute",
-  //           }}
-  //         />
-  //         &nbsp;&nbsp;&nbsp; Cancel
-  //       </button>
-  //     </ListBlock>
-  //   </li>
-  // ));
-
   const onRemove = (id) => {
     const removeList = basket.filter((list) => list.id !== id);
     const subtractPrice = basket.filter((list) => list.id === id);
-    console.log(removeList);
     setBasket(removeList);
-    // nextId.current += 1;
-    // console.log(nextId.current);
     total.current -= subtractPrice[0].menuPrice * subtractPrice[0].number;
   };
 
@@ -240,7 +169,7 @@ function App() {
       <KioskTemplate>
         <h1>Welcome to McDonald's</h1>
         <h1>카테고리</h1>
-        <div className="sideBar" style={{ height: "260px" }}>
+        <div className="sideBar" style={{ height: "300px" }}>
           <ul>
             {categoryList}
             {/* <CategoryTemplate>
@@ -248,9 +177,8 @@ function App() {
             </CategoryTemplate> */}
           </ul>
         </div>
-        {/* <Burger onClickMenu={onClickMenu} /> */}
         {display}
-        <Total selectedMenu={selectedMenu} total={total} />
+        {display && <Total selectedMenu={selectedMenu} total={total} />}
       </KioskTemplate>
     </div>
   );

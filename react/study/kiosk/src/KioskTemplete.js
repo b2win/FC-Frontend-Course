@@ -11,7 +11,7 @@ const KioskTemplateBlock = styled.div`
   border-radius: 16px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.04);
 
-  margin: 0 auto;
+  margin: auto;
 
   display: flex;
   flex-direction: column;
