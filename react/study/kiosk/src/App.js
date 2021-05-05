@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import { MdRemoveCircleOutline } from "react-icons/md";
 import KioskTemplate from "./KioskTemplete";
 import CategoryTemplate from "./CategoryTemplate";
@@ -37,22 +37,24 @@ function App() {
   `;
 
   const [basket, setBasket] = useState([]);
-  const [nextId, setNextId] = useState(0);
   const [display, setDisplay] = useState();
-  const [total, setTotal] = useState("");
-  const [onClickCategory, setOnClickCategory] = useState("burgerList");
+  // const [onClickCategory, setOnClickCategory] = useState("burgerList");
+
+  const nextId = useRef(0);
+  const total = useRef(0);
 
   const onClickMenu = (detail) => {
     const addMenu = {
-      id: nextId,
+      id: nextId.current,
       korean: detail.nameKor,
       menuPrice: detail.price,
       number: detail.number,
     };
     setBasket((add) => add.concat(addMenu));
-    setNextId(nextId + 1);
-    console.log(addMenu.menuPrice);
-    setTotal(Math.abs(total + addMenu.menuPrice * addMenu.number) * 1);
+    console.log(basket);
+    nextId.current += 1;
+    total.current += addMenu.menuPrice;
+    console.log((add) => add.concat(addMenu.menuPrice * addMenu.number));
   };
 
   // const onClickMenu = (detail) => {
@@ -112,9 +114,7 @@ function App() {
       }
       return list.value;
     });
-    console.log(updateCategory);
     setDisplay(updateCategory);
-    console.log(display);
 
     // setDisplay(category.map((list) => list.id === id && list.value));
     // console.log(display);
@@ -128,10 +128,10 @@ function App() {
       }
       return menu;
     });
+    console.log(basketUpdate[id].number);
     console.log(basketUpdate);
     setBasket(basketUpdate);
-    console.log(basket);
-    setTotal(total + basket[id].menuPrice);
+    total.current += basketUpdate[id].menuPrice;
   };
 
   const countDown = (list) => {
@@ -142,8 +142,8 @@ function App() {
       return menu;
     });
     setBasket(basketUpdate);
+    if (list.number > 1) total.current -= basketUpdate[list.id].menuPrice;
     if (list.number > 1) {
-      setTotal(total - basket[list.id].menuPrice);
     }
   };
 
@@ -151,14 +151,14 @@ function App() {
     <li key={list.id}>
       <ListBlock>
         <div style={{ width: "300px" }}>{list.korean}</div>
-        <div style={{ width: "50px" }}>{list.number}개</div>
+        <div style={{ width: "60px" }}>{list.number}개</div>
         <button style={{ width: "20px" }} onClick={() => countUp(list.id)}>
           +
         </button>
         <button style={{ width: "20px" }} onClick={() => countDown(list)}>
           -
         </button>
-        <div style={{ width: "80px" }}>{list.menuPrice * list.number}원</div>
+        <div style={{ width: "90px" }}>{list.menuPrice * list.number}원</div>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button onClick={() => onRemove(list.id)}>
           <MdRemoveCircleOutline
@@ -198,8 +198,7 @@ function App() {
     const removeList = basket.filter((list) => list.id !== id);
     const subtractPrice = basket.filter((list) => list.id === id);
     setBasket(removeList);
-    setNextId(nextId - 1);
-    setTotal(total - subtractPrice[0].menuPrice * subtractPrice[0].number);
+    total.current -= subtractPrice[0].menuPrice * subtractPrice[0].number;
   };
 
   return (
