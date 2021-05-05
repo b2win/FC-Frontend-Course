@@ -51,10 +51,8 @@ function App() {
       number: detail.number,
     };
     setBasket((add) => add.concat(addMenu));
-    console.log(basket);
     nextId.current += 1;
     total.current += addMenu.menuPrice;
-    console.log((add) => add.concat(addMenu.menuPrice * addMenu.number));
   };
 
   // const onClickMenu = (detail) => {
@@ -128,8 +126,6 @@ function App() {
       }
       return menu;
     });
-    console.log(basketUpdate[id].number);
-    console.log(basketUpdate);
     setBasket(basketUpdate);
     total.current += basketUpdate[id].menuPrice;
   };
