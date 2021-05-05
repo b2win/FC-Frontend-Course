@@ -125,10 +125,14 @@ function App() {
     const basketUpdate = basket.map((menu) =>
       menu.id === list.id ? { ...menu, number: menu.number + 1 } : menu
     );
+    const changeTotal = basket.map((menu) =>
+      menu.id === list.id ? (total.current += menu.menuPrice) : menu
+    );
     setBasket(basketUpdate);
     console.log(basketUpdate);
-    console.log(basketUpdate[list.id]); //메뉴 삭제시 아이디 업데이트 안됌.
-    total.current += basketUpdate[list.id].menuPrice; //id 때문에 버그 발생
+    // console.log(basketUpdate[list.id]); //메뉴 삭제시 아이디 업데이트 안됌.
+    // total.current += basketUpdate[list.id].menuPrice; //id 때문에 버그 발생
+    console.log(changeTotal);
   };
   // const countUp = (list) => {
   //   const basketUpdate = basket.map((menu) => {
@@ -149,8 +153,14 @@ function App() {
         ? { ...menu, number: menu.number - 1 }
         : menu
     );
+    const changeTotal = basket.map((menu) =>
+      menu.id === list.id && list.number > 1
+        ? (total.current -= menu.menuPrice)
+        : menu
+    );
+    console.log(changeTotal);
     setBasket(basketUpdate);
-    if (list.number > 1) total.current -= basketUpdate[list.id].menuPrice;
+    // if (list.number > 1) total.current -= basketUpdate[list.id].menuPrice;
   };
   // const countDown = (list) => {
   //   const basketUpdate = basket.map((menu) => {
