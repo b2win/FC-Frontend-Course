@@ -4,8 +4,11 @@
   height: 64px;
   border-radius: 32px;
   box-sizing: border-box;
+  transition: 1s;
 }
 
-.toggle.active {
+.toggle.b2win {
   background: yellow;
+  border-radius: 0px;
+  transition: 1s;
 }

@@ -915,10 +915,10 @@ var toggleSwitch = function toggleSwitch() {
   };
 };
 
-var increase = function increase(difference) {
+var increase = function increase(아무거나) {
   return {
     type: INCREASE,
-    difference: difference
+    아무거나: 아무거나
   };
 };
 
@@ -945,7 +945,7 @@ function reducer() {
 
     case INCREASE:
       return _objectSpread(_objectSpread({}, state), {}, {
-        counter: state.counter + action.difference
+        counter: state.counter + action.아무거나
       });
 
     case DECREASE:
@@ -964,10 +964,11 @@ var render = function render() {
   var state = store.getState();
 
   if (state.toggle) {
-    divToggle.classList.add("active");
+    divToggle.classList.add("b2win");
   } else {
-    divToggle.classList.remove("active");
-  }
+    divToggle.classList.remove("b2win");
+  } // divToggle.classList.toggle("b2win");
+
 
   counter.innerText = state.counter;
 };
@@ -979,14 +980,15 @@ var listener = function listener() {
   console.log("상태가 업데이트 됨");
 };
 
-var unsubscribe = store.subscribe(listener); // unsubscribe();
+var unsubscribe = store.subscribe(listener);
+unsubscribe();
 
 divToggle.onclick = function () {
   store.dispatch(toggleSwitch());
 };
 
 btnIncrease.onclick = function () {
-  store.dispatch(increase(1));
+  store.dispatch(increase(7));
 };
 
 btnDecrease.onclick = function () {

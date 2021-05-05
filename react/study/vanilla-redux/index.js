@@ -10,7 +10,7 @@ const INCREASE = "INCREASE";
 const DECREASE = "DECREASE";
 
 const toggleSwitch = () => ({ type: TOGGLE_SWITCH });
-const increase = (difference) => ({ type: INCREASE, difference });
+const increase = (아무거나) => ({ type: INCREASE, 아무거나 });
 const decrease = () => ({ type: DECREASE });
 
 const initialState = {
@@ -28,7 +28,7 @@ function reducer(state = initialState, action) {
     case INCREASE:
       return {
         ...state,
-        counter: state.counter + action.difference,
+        counter: state.counter + action.아무거나,
       };
     case DECREASE:
       return {
@@ -45,10 +45,11 @@ const store = createStore(reducer);
 const render = () => {
   const state = store.getState();
   if (state.toggle) {
-    divToggle.classList.add("active");
+    divToggle.classList.add("b2win");
   } else {
-    divToggle.classList.remove("active");
+    divToggle.classList.remove("b2win");
   }
+  // divToggle.classList.toggle("b2win");
   counter.innerText = state.counter;
 };
 
@@ -61,13 +62,13 @@ const listener = () => {
 
 const unsubscribe = store.subscribe(listener);
 
-// unsubscribe();
+unsubscribe();
 
 divToggle.onclick = () => {
   store.dispatch(toggleSwitch());
 };
 btnIncrease.onclick = () => {
-  store.dispatch(increase(1));
+  store.dispatch(increase(7));
 };
 
 btnDecrease.onclick = () => {
