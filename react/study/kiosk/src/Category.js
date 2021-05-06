@@ -3,6 +3,54 @@ import React, { useState } from "react";
 function Burger({ onClickMenu }) {
   const [onClickCategory, setOnClickCategory] = useState("");
 
+  const categoryList = category.map((list) => (
+    <CategoryTemplate>
+      <h3 key={uuidv4()} onClick={() => selectCategory(list.id)}>
+        {list.name}
+      </h3>
+    </CategoryTemplate>
+  ));
+
+  const selectCategory = () => {
+    const updateCategory = category.map((list) => {
+      if (list.id !== id) {
+        return null;
+      }
+      return list.value;
+    });
+    setDisplay(updateCategory);
+
+    setOnClickCategory(category.value);
+  };
+
+  const category = [
+    {
+      id: 1,
+      name: "버거",
+      value: "burger",
+    },
+    {
+      id: 2,
+      name: "맥카페 & 음료",
+      value: "drink",
+    },
+    {
+      id: 3,
+      name: "사이드 & 디저트",
+      value: "dessert",
+    },
+    {
+      id: 4,
+      name: "맥모닝",
+      value: "morning",
+    },
+    {
+      id: 5,
+      name: "맥런치",
+      value: "lunch",
+    },
+  ];
+
   const burger = [
     {
       id: 1,
