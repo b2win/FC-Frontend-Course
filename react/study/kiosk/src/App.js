@@ -51,22 +51,25 @@ function App() {
     total.current += addMenu.menuPrice;
   };
 
-  const categoryList = CategoryList.map((list) => (
+  const categoryList = CategoryList.map((categoryDetail) => (
     <CategoryTemplate>
-      <h3 key={uuidv4()} onClick={() => selectCategoryList(list)}>
-        {list.categoryName}
+      <h3 key={uuidv4()} onClick={() => onClickCategory(categoryDetail)}>
+        {categoryDetail.categoryName}
       </h3>
     </CategoryTemplate>
   ));
 
-  const selectCategoryList = (메뉴) => {
-    const updateCategory = CategoryList.map((list) => {
-      if (list.categoryId !== 메뉴.categoryId) {
+  const onClickCategory = (categoryDetail) => {
+    const updateCategory = CategoryList.map((updatedCategoryDetail) => {
+      if (updatedCategoryDetail.categoryId !== categoryDetail.categoryId) {
         return null;
       }
-      // return list.categoryName[categoryId];
-      // return console.log(MenuCategory);
-      return <MenuCategory onClickMenu={onClickMenu} list={list} />;
+      return (
+        <MenuCategory
+          onClickMenu={onClickMenu}
+          updatedCategoryDetail={updatedCategoryDetail}
+        />
+      );
     });
     setDisplay(updateCategory);
   };

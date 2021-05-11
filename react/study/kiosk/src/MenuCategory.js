@@ -306,45 +306,45 @@ export const CategoryList = [
   },
 ];
 
-export function MenuCategory({ onClickMenu, list }) {
-  const MenuList = CategoryList[list.categoryId].categoryMenuList.map(
-    (list) => (
-      <li
-        key={list.id}
-        style={{
-          cursor: "pointer",
-          fontWeight: "bold",
-          height: 100,
-          margin: "1rem",
-          textAlign: "center",
-          border: "1px solid #ced4da",
-          borderRadius: "16px",
-          width: "320px",
-        }}
-        onClick={() => {
-          onClickMenu(list);
-        }}
-      >
-        <img
-          src={list.address}
-          alt={"burger"}
-          width={"90px"}
-          height={"90px"}
-          style={{ float: "left" }}
-        />
-        <div style={{ display: "inline-block" }}>
-          <div>{list.nameKor}</div>
-          <div style={{ fontSize: "0.7rem" }}>{list.nameEng}</div>
-          <div>{list.kcal}</div>
-          <div>{list.price}원</div>
-        </div>
-      </li>
-    )
-  );
+export function MenuCategory({ onClickMenu, updatedCategoryDetail }) {
+  const MenuList = CategoryList[
+    updatedCategoryDetail.categoryId
+  ].categoryMenuList.map((menuList) => (
+    <li
+      key={menuList.id}
+      style={{
+        cursor: "pointer",
+        fontWeight: "bold",
+        height: 100,
+        margin: "1rem",
+        textAlign: "center",
+        border: "1px solid #ced4da",
+        borderRadius: "16px",
+        width: "320px",
+      }}
+      onClick={() => {
+        onClickMenu(menuList);
+      }}
+    >
+      <img
+        src={menuList.address}
+        alt={"burger"}
+        width={"90px"}
+        height={"90px"}
+        style={{ float: "left" }}
+      />
+      <div style={{ display: "inline-block" }}>
+        <div>{menuList.nameKor}</div>
+        <div style={{ fontSize: "0.7rem" }}>{menuList.nameEng}</div>
+        <div>{menuList.kcal}</div>
+        <div>{menuList.price}원</div>
+      </div>
+    </li>
+  ));
 
   return (
     <div>
-      <h1>{list.categoryName}</h1>
+      <h1>{updatedCategoryDetail.categoryName}</h1>
       <ul
         style={{
           display: "grid",
