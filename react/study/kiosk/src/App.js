@@ -3,11 +3,6 @@ import { MdRemoveCircleOutline } from "react-icons/md";
 import KioskTemplate from "./KioskTemplete";
 import CategoryTemplate from "./CategoryTemplate";
 import "./App.css";
-import Burger from "./Burger";
-import Dessert from "./Dessert";
-import Drink from "./Drink";
-import Lunch from "./Lunch";
-import Morning from "./Morning";
 import Total from "./Total";
 import styled from "styled-components";
 import { v4 as uuidv4 } from "uuid";
@@ -40,7 +35,6 @@ function App() {
 
   const [basket, setBasket] = useState([]);
   const [display, setDisplay] = useState();
-  // const [onClickCategory, setOnClickCategory] = useState("burgerList");
 
   const nextId = useRef(0);
   const total = useRef(0);
@@ -57,42 +51,6 @@ function App() {
     total.current += addMenu.menuPrice;
   };
 
-  const category = [
-    {
-      id: 1,
-      name: "버거",
-      value: <Burger onClickMenu={onClickMenu} />,
-    },
-    {
-      id: 2,
-      name: "맥카페 & 음료",
-      value: <Drink onClickMenu={onClickMenu} />,
-    },
-    {
-      id: 3,
-      name: "사이드 & 디저트",
-      value: <Dessert onClickMenu={onClickMenu} />,
-    },
-    {
-      id: 4,
-      name: "맥모닝",
-      value: <Morning onClickMenu={onClickMenu} />,
-    },
-    {
-      id: 5,
-      name: "맥런치",
-      value: <Lunch onClickMenu={onClickMenu} />,
-    },
-  ];
-
-  // const categoryList = category.map((list) => (
-  //   <CategoryTemplate>
-  //     <h3 key={uuidv4()} onClick={() => selectCategoryList(list.id)}>
-  //       {list.name}
-  //     </h3>
-  //   </CategoryTemplate>
-  // ));
-
   const categoryList = CategoryList.map((list) => (
     <CategoryTemplate>
       <h3 key={uuidv4()} onClick={() => selectCategoryList(list)}>
@@ -100,16 +58,6 @@ function App() {
       </h3>
     </CategoryTemplate>
   ));
-
-  // const selectCategoryList = (id) => {
-  //   const updateCategory = category.map((list) => {
-  //     if (list.id !== id) {
-  //       return null;
-  //     }
-  //     return list.value;
-  //   });
-  //   setDisplay(updateCategory);
-  // };
 
   const selectCategoryList = (메뉴) => {
     const updateCategory = CategoryList.map((list) => {
@@ -191,12 +139,7 @@ function App() {
         <h1>Welcome to McDonald's</h1>
         <h1>카테고리</h1>
         <div className="sideBar" style={{ height: "300px" }}>
-          <ul>
-            {categoryList}
-            {/* <CategoryTemplate>
-              <h3 onClick={() => onClickSidebarMenu}>햄버거</h3>
-            </CategoryTemplate> */}
-          </ul>
+          <ul>{categoryList}</ul>
         </div>
         {display}
         {display && <Total selectedMenu={selectedMenu} total={total} />}

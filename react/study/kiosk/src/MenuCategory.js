@@ -319,7 +319,7 @@ export function MenuCategory({ onClickMenu, list }) {
           textAlign: "center",
           border: "1px solid #ced4da",
           borderRadius: "16px",
-          width: "300px",
+          width: "320px",
         }}
         onClick={() => {
           onClickMenu(list);
@@ -344,7 +344,7 @@ export function MenuCategory({ onClickMenu, list }) {
 
   return (
     <div>
-      <h1>버거</h1>
+      <h1>{list.categoryName}</h1>
       <ul
         style={{
           display: "grid",
