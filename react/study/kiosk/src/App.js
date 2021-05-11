@@ -11,6 +11,7 @@ import Morning from "./Morning";
 import Total from "./Total";
 import styled from "styled-components";
 import { v4 as uuidv4 } from "uuid";
+import { MenuCategory, CategoryList } from "./MenuCategory";
 
 function App() {
   const ListBlock = styled.div`
@@ -84,20 +85,40 @@ function App() {
     },
   ];
 
-  const categoryList = category.map((list) => (
+  // const categoryList = category.map((list) => (
+  //   <CategoryTemplate>
+  //     <h3 key={uuidv4()} onClick={() => selectCategoryList(list.id)}>
+  //       {list.name}
+  //     </h3>
+  //   </CategoryTemplate>
+  // ));
+
+  const categoryList = CategoryList.map((list) => (
     <CategoryTemplate>
-      <h3 key={uuidv4()} onClick={() => selectCategoryList(list.id)}>
-        {list.name}
+      <h3 key={uuidv4()} onClick={() => selectCategoryList(list)}>
+        {list.categoryName}
       </h3>
     </CategoryTemplate>
   ));
 
-  const selectCategoryList = (id) => {
-    const updateCategory = category.map((list) => {
-      if (list.id !== id) {
+  // const selectCategoryList = (id) => {
+  //   const updateCategory = category.map((list) => {
+  //     if (list.id !== id) {
+  //       return null;
+  //     }
+  //     return list.value;
+  //   });
+  //   setDisplay(updateCategory);
+  // };
+
+  const selectCategoryList = (메뉴) => {
+    const updateCategory = CategoryList.map((list) => {
+      if (list.categoryId !== 메뉴.categoryId) {
         return null;
       }
-      return list.value;
+      // return list.categoryName[categoryId];
+      // return console.log(MenuCategory);
+      return <MenuCategory onClickMenu={onClickMenu} list={list} />;
     });
     setDisplay(updateCategory);
   };

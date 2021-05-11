@@ -1,7 +1,7 @@
-export const MenuCategory = [
+export const CategoryList = [
   {
-    categoryId: 1,
-    categoryName: "burger",
+    categoryId: 0,
+    categoryName: "버거",
     categoryMenuList: [
       {
         id: 1,
@@ -61,8 +61,8 @@ export const MenuCategory = [
   },
 
   {
-    categoryId: 2,
-    categoryName: "drink",
+    categoryId: 1,
+    categoryName: "맥카페 & 음료",
     categoryMenuList: [
       {
         id: 1,
@@ -122,8 +122,8 @@ export const MenuCategory = [
   },
 
   {
-    categoryId: 3,
-    categoryName: "dessert",
+    categoryId: 2,
+    categoryName: "사이드 & 디저트",
     categoryMenuList: [
       {
         id: 1,
@@ -184,8 +184,8 @@ export const MenuCategory = [
   },
 
   {
-    categoryId: 4,
-    categoryName: "morning",
+    categoryId: 3,
+    categoryName: "맥모닝",
     categoryMenuList: [
       {
         id: 1,
@@ -245,8 +245,8 @@ export const MenuCategory = [
   },
 
   {
-    categoryId: 5,
-    categoryName: "lunch",
+    categoryId: 4,
+    categoryName: "맥런치",
     categoryMenuList: [
       {
         id: 1,
@@ -305,3 +305,54 @@ export const MenuCategory = [
     ],
   },
 ];
+
+export function MenuCategory({ onClickMenu, list }) {
+  const MenuList = CategoryList[list.categoryId].categoryMenuList.map(
+    (list) => (
+      <li
+        key={list.id}
+        style={{
+          cursor: "pointer",
+          fontWeight: "bold",
+          height: 100,
+          margin: "1rem",
+          textAlign: "center",
+          border: "1px solid #ced4da",
+          borderRadius: "16px",
+          width: "300px",
+        }}
+        onClick={() => {
+          onClickMenu(list);
+        }}
+      >
+        <img
+          src={list.address}
+          alt={"burger"}
+          width={"90px"}
+          height={"90px"}
+          style={{ float: "left" }}
+        />
+        <div style={{ display: "inline-block" }}>
+          <div>{list.nameKor}</div>
+          <div style={{ fontSize: "0.7rem" }}>{list.nameEng}</div>
+          <div>{list.kcal}</div>
+          <div>{list.price}원</div>
+        </div>
+      </li>
+    )
+  );
+
+  return (
+    <div>
+      <h1>버거</h1>
+      <ul
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+        }}
+      >
+        {MenuList}
+      </ul>
+    </div>
+  );
+}
