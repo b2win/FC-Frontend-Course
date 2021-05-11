@@ -9,6 +9,7 @@ function TodosContainer({ input, todos, changeInput, insert, toggle, remove }) {
       input={input}
       todos={todos}
       onChangeInput={changeInput}
+      onToggle={toggle}
       onInsert={insert}
       onRemove={remove}
     />
