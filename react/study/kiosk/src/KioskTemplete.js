@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const KioskTemplateBlock = styled.div`
-  width: 700px;
+  width: 750px;
   overflow-y: auto;
 
   position: relative;
@@ -17,6 +17,10 @@ const KioskTemplateBlock = styled.div`
   flex-direction: column;
 
   align-items: center;
+
+  div:nth-child(3) {
+    height: 300px;
+  }
 `;
 
 function KioskTemplate({ children }) {

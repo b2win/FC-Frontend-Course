@@ -4,35 +4,11 @@ import KioskTemplate from "./KioskTemplete";
 import CategoryTemplate from "./CategoryTemplate";
 import "./App.css";
 import Total from "./Total";
-import styled from "styled-components";
 import { v4 as uuidv4 } from "uuid";
 import { MenuCategory, CategoryList } from "./MenuCategory";
+import SelectedMenuBlock from "./style/SelectedMenuBlock";
 
 function App() {
-  const ListBlock = styled.div`
-    display: flex;
-    div {
-      font-size: 1.2rem;
-    }
-    div:first-child {
-      width: 250px;
-    }
-    div:nth-child(2) {
-      width: 50px;
-    }
-    button {
-      font-weight: bold;
-      outline: none;
-      border: none;
-      border-radius: 4px;
-      margin: 0.2rem;
-      cursor: pointer;
-      height: 1.4rem;
-      font-size: 1rem;
-      background: #ced4da;
-    }
-  `;
-
   const [basket, setBasket] = useState([]);
   const [display, setDisplay] = useState();
 
@@ -100,16 +76,12 @@ function App() {
 
   const selectedMenu = basket.map((list) => (
     <li key={uuidv4()}>
-      <ListBlock>
-        <div style={{ width: "300px" }}>{list.korean}</div>
-        <div style={{ width: "60px" }}>{list.number}개</div>
-        <button style={{ width: "20px" }} onClick={() => countUp(list)}>
-          +
-        </button>
-        <button style={{ width: "20px" }} onClick={() => countDown(list)}>
-          -
-        </button>
-        <div style={{ width: "90px" }}>{list.menuPrice * list.number}원</div>
+      <SelectedMenuBlock>
+        <div>{list.korean}</div>
+        <div>{list.number}개</div>
+        <button onClick={() => countUp(list)}>+</button>
+        <button onClick={() => countDown(list)}>-</button>
+        <div>{list.menuPrice * list.number}원</div>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button onClick={() => onRemove(list.id)}>
           <MdRemoveCircleOutline
@@ -120,7 +92,7 @@ function App() {
           />
           &nbsp;&nbsp;&nbsp; Cancel
         </button>
-      </ListBlock>
+      </SelectedMenuBlock>
     </li>
   ));
 
@@ -141,7 +113,7 @@ function App() {
       <KioskTemplate>
         <h1>Welcome to McDonald's</h1>
         <h1>카테고리</h1>
-        <div className="sideBar" style={{ height: "300px" }}>
+        <div>
           <ul>{categoryList}</ul>
         </div>
         {display}
