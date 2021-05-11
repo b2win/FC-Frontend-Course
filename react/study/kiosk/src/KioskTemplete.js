@@ -17,10 +17,6 @@ const KioskTemplateBlock = styled.div`
   flex-direction: column;
 
   align-items: center;
-
-  div:nth-child(3) {
-    height: 300px;
-  }
 `;
 
 function KioskTemplate({ children }) {
