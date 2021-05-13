@@ -16,15 +16,25 @@ function App() {
   const total = useRef(0);
 
   const onClickMenu = (detail) => {
+    function sameMenu(list) {
+      if (list.nameKor === detail.nameKor) {
+        return true;
+      }
+      console.log(list.nameKor);
+      return false;
+    }
+    console.log(basket.some(sameMenu));
     const addMenu = {
       id: nextId.current,
       korean: detail.nameKor,
       menuPrice: detail.price,
       number: detail.number,
     };
+
     setBasket((add) => add.concat(addMenu));
     nextId.current += 1;
     total.current += addMenu.menuPrice;
+    console.log(basket);
   };
 
   const categoryList = CategoryList.map((categoryDetail) => (
