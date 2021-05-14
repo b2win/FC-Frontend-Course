@@ -1,14 +1,17 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useCallback } from "react";
+import { useSelector, useDispatch, shallowEqual } from "react-redux";
 import Todos from "../components/Todos";
 import { changeInput, insert, toggle, remove } from "../modules/todos";
 import useActions from "../lib/useActions";
 
 function TodosContainer() {
-  const { input, todos } = useSelector(({ todos }) => ({
-    input: todos.input,
-    todos: todos.todos,
-  }));
+  const { input, todos } = useSelector(
+    ({ todos }) => ({
+      input: todos.input,
+      todos: todos.todos,
+    })
+    // shallowEqual
+  );
 
   // const dispatch = useDispatch();
   // const onChangeInput = useCallback(
