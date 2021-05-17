@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { decrease, increase, setDiff } from "../modules/counter";
 
 function CounterContainer({ number, diff, increase, decrease, setDiff }) {
+  console.log(diff);
+
   return (
     <div>
       <Counter
