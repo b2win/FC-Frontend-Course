@@ -90,3 +90,25 @@ export default function posts(state = initialState, action) {
       return state;
   }
 }
+
+const initialState = {
+  posts: {
+    loading: false,
+    data: null,
+    error: null,
+  },
+  post: {
+    loading: false,
+    data: null,
+    error: null,
+  },
+};
+
+export default function posts(state = initialState, action) {
+  switch(action.type) {
+    case GET_POSTS:
+      return
+    default:
+      return state;
+    }
+}
