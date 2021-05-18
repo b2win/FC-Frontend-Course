@@ -4,7 +4,7 @@ import Counter from "../components/Counter";
 import { increase, decrease } from "../modules/counter";
 
 function CounterContainer() {
-  const number = useSelector((state) => state.counter.number);
+  const number = useSelector((aaa) => aaa.counter.number);
   const dispatch = useDispatch();
   const onIncrease = useCallback(() => dispatch(increase()), [dispatch]);
   const onDecrease = useCallback(() => dispatch(decrease()), [dispatch]);
