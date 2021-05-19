@@ -6,11 +6,11 @@ import { getPost, getUsers } from "../modules/sample";
 const { useEffect } = React;
 const SampleContainer = () => {
   const { post, users, loadingPost, loadingUsers } = useSelector(
-    ({ sample }) => ({
+    ({ sample, loading }) => ({
       post: sample.post,
       users: sample.users,
-      loadingPost: sample.loading.GET_POST,
-      loadingUsers: sample.loading.GET_USERS,
+      loadingPost: loading["sample/GET_POST"],
+      loadingUsers: loading["sample/GET_USERS"],
     })
   );
 
@@ -57,11 +57,11 @@ export default SampleContainer;
 // };
 
 // export default connect(
-//   ({ sample }) => ({
+//   ({ sample, loading }) => ({
 //     post: sample.post,
 //     users: sample.users,
-//     loadingPost: sample.loading.GET_POST,
-//     loadingUsers: sample.loading.GET_USERS,
+//     loadingPost: loading["sample/GET_POST"],
+//     loadingUsers: loading["sample/GET_USERS"],
 //   }),
 //   {
 //     getPost,
