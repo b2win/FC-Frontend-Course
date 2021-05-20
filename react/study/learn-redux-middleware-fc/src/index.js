@@ -10,6 +10,7 @@ import logger from "redux-logger";
 import { composeWithDevTools } from "redux-devtools-extension";
 import ReduxThunk from "redux-thunk";
 import createSagaMiddleware from "redux-saga";
+import { BrowserRouter } from "react-router-dom";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -21,11 +22,13 @@ const store = createStore(
 sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </Provider>,
+  <BrowserRouter>
+    <Provider store={store}>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </Provider>
+  </BrowserRouter>,
   document.getElementById("root")
 );
 
