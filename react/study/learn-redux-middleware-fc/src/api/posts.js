@@ -18,7 +18,7 @@ const posts = [
   },
 ];
 
-export const getPost = async () => {
+export const getPosts = async () => {
   await sleep(500);
   return posts;
 };
