@@ -915,10 +915,10 @@ var toggleSwitch = function toggleSwitch() {
   };
 };
 
-var increase = function increase(아무거나) {
+var increase = function increase(difference) {
   return {
     type: INCREASE,
-    아무거나: 아무거나
+    difference: difference
   };
 };
 
@@ -945,7 +945,7 @@ function reducer() {
 
     case INCREASE:
       return _objectSpread(_objectSpread({}, state), {}, {
-        counter: state.counter + action.아무거나
+        counter: state.counter + action.difference
       });
 
     case DECREASE:
@@ -964,11 +964,10 @@ var render = function render() {
   var state = store.getState();
 
   if (state.toggle) {
-    divToggle.classList.add("b2win");
+    divToggle.classList.add("active");
   } else {
-    divToggle.classList.remove("b2win");
-  } // divToggle.classList.toggle("b2win");
-
+    divToggle.classList.remove("active");
+  }
 
   counter.innerText = state.counter;
 };
@@ -976,19 +975,12 @@ var render = function render() {
 render();
 store.subscribe(render);
 
-var listener = function listener() {
-  console.log("상태가 업데이트 됨");
-};
-
-var unsubscribe = store.subscribe(listener);
-unsubscribe();
-
 divToggle.onclick = function () {
   store.dispatch(toggleSwitch());
 };
 
 btnIncrease.onclick = function () {
-  store.dispatch(increase(7));
+  store.dispatch(increase(1));
 };
 
 btnDecrease.onclick = function () {
@@ -1022,7 +1014,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60579" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60403" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -1199,4 +1191,4 @@ function hmrAcceptRun(bundle, id) {
   }
 }
 },{}]},{},["../../../../../../../AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/vanilla-redux.e31bb0bc.js.map
+//# sourceMappingURL=/vanilla-redux0523.e31bb0bc.js.map
