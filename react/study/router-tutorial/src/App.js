@@ -4,6 +4,7 @@ import About from "./About";
 import Home from "./Home";
 import Profiles from "./Profiles";
 import HistorySample from "./HistorySample";
+import HistorySample함수형 from "./HistorySample함수형";
 
 const App = () => {
   return (
@@ -27,7 +28,7 @@ const App = () => {
         <Route path="/" component={Home} exact={true} />
         <Route path={["/about", "/info"]} component={About} />
         <Route path="/profiles" component={Profiles} />
-        <Route path="/history" component={HistorySample} />
+        <Route path="/history" component={HistorySample함수형} />
         <Route
           render={({ location }) => (
             <div>

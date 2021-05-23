@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-function HistorySample함수형({ history }) {
+function HistorySample({ history }) {
   const goBack = () => {
     history.goBack();
   };
@@ -10,7 +10,6 @@ function HistorySample함수형({ history }) {
   };
 
   useEffect(() => {
-    console.log(history);
     const unblock = history.block("정말 떠나실건가요?");
     return () => {
       unblock();
@@ -25,4 +24,4 @@ function HistorySample함수형({ history }) {
   );
 }
 
-export default HistorySample함수형;
+export default HistorySample;
