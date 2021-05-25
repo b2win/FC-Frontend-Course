@@ -7,8 +7,8 @@ import PostPage from "./pages/PostPage";
 function App() {
   return (
     <>
-      <Route path="/" component={PostListPage} exact={true} />
-      <Route path="/:id" component={PostPage} />{" "}
+      <Route path="/" component={PostListPage} exact />
+      <Route path="/:id" component={PostPage} />
     </>
   );
 }
