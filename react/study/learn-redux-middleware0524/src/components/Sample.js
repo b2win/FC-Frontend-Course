@@ -1,4 +1,5 @@
 import loadingImage from "./image/loadingImage.gif";
+import { Link } from "react-router-dom";
 
 const Sample = ({ loadingPost, loadingUsers, post, users }) => {
   return (
@@ -26,7 +27,9 @@ const Sample = ({ loadingPost, loadingUsers, post, users }) => {
           <ul>
             {users.map((user) => (
               <li key={user.id}>
-                {user.username} ({user.email})
+                <Link to={`/${user.id}`}>
+                  {user.username} ({user.email})
+                </Link>
               </li>
             ))}
           </ul>
