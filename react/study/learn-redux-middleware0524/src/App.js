@@ -7,7 +7,7 @@ import UserList from "./components/UserList";
 function App() {
   return (
     <div>
-      <SampleContainer />
+      <CounterContainer />
     </div>
     // <>
     //   <Route path="/" component={UserListPage} exact />

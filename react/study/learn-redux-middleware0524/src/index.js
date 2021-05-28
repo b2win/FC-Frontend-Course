@@ -5,20 +5,24 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { applyMiddleware, createStore } from "redux";
-import rootReducer from "./modules";
+import rootReducer, { rootSaga } from "./modules";
 // import loggerMiddleware from "./lib/loggerMiddleware";
 import { createLogger } from "redux-logger";
 import ReduxThunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { BrowserRouter } from "react-router-dom";
+import createSagaMiddleware from "redux-saga";
 
 const logger = createLogger();
+const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(logger, ReduxThunk))
+  composeWithDevTools(applyMiddleware(logger, ReduxThunk, sagaMiddleware))
   // composeWithDevTools() 이렇게 쓰면 안되고 위에처럼!!!
 );
+
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <BrowserRouter>
