@@ -3,6 +3,7 @@ const Sample = ({ loadingPost, loadingUsers, post, users }) => {
     <div>
       <section>
         <h1>포스트</h1>
+        {console.log(loadingPost)}
         {loadingPost && "로딩 중..."}
         {!loadingPost && post && (
           <div>
