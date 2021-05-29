@@ -32,7 +32,22 @@ export const decreaseAsync = createAction(DECREASE_ASYNC, () => undefined);
 
 function* increaseSaga() {
   yield delay(1000);
+  console.log("1초경과");
+  yield delay(1000);
+  console.log("2초경과");
+  yield delay(1000);
+  console.log("3초경과");
+  yield delay(1000);
+  console.log("4초경과");
+  yield delay(1000);
+  console.log("5초경과");
+  yield delay(1000);
+  console.log("6초경과");
+  yield delay(1000);
+  console.log("7초경과");
   yield put(increase());
+  console.log(Date());
+
   const number = yield select((state) => state.counter);
   console.log(`현재 값은 ${number}입니다.`);
 }
