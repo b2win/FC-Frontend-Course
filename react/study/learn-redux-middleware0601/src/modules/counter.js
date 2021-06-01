@@ -8,6 +8,18 @@ export const decrease = createAction(DECREASE);
 // export const increase = () => ({ type: INCREASE });
 // export const decrease = () => ({ type: DECREASE });
 
+export const increaseAsync = () => (aaa) => {
+  setTimeout(() => {
+    aaa(increase());
+  }, 1000);
+};
+
+export const decreaseAsync = () => (dispatch) => {
+  setTimeout(() => {
+    dispatch(decrease());
+  }, 1000);
+};
+
 const initialState = 0;
 
 const counter = handleActions(
