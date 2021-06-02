@@ -1,14 +1,11 @@
-import React from 'react';
-import './App.css';
-// import Counter from './Counter';
+import React from "react";
+import "./App.css";
+import Counter from "./Counter";
 // import Greetings from './Greetings';
-import MyForm from './MyForm';
+// import MyForm from "./MyForm";
+import ReducerSample from "./ReducerSample";
 
 function App() {
-  const onSubmit = (form: {name: string; description: string }) => {
-    console.log(form);
-  };
-  return <MyForm onSubmit={onSubmit} />
-
+  return <ReducerSample />;
 }
 export default App;
