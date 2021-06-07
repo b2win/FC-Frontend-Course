@@ -1,3 +1,4 @@
+import React from "react";
 import Menu from "./components/Menu";
 import { Route } from "react-router";
 import RedPage from "./pages/RedPage";
