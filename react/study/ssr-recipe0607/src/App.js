@@ -1,8 +1,8 @@
-import React from "react";
-import Menu from "./components/Menu";
-import { Route } from "react-router";
-import RedPage from "./pages/RedPage";
-import BluePage from "./pages/BluePage";
+import React from 'react';
+import { Route } from 'react-router-dom';
+import Menu from './components/Menu';
+import RedPage from './pages/RedPage';
+import BluePage from './pages/BluePage';
 
 function App() {
   return (
