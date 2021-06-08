@@ -1,0 +1,5 @@
+20.3 안될 때
+
+https://helloinyong.tistory.com/174
+
+git init 하고 다시 책 따라하면 됌.
