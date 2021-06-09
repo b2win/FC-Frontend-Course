@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 const Menu = () => {
   return (
     <ul>
@@ -9,9 +9,9 @@ const Menu = () => {
       <li>
         <Link to="/blue">Blue</Link>
       </li>
-      <li>
+      {/* <li>
         <Link to="/users">Users</Link>
-      </li>
+      </li> */}
     </ul>
   );
 };
