@@ -15,3 +15,5 @@ ReactDOM.render(
 );
 
 reportWebVitals();
+
+// git commit -m'Commit before eject'
