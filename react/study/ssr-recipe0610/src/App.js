@@ -11,8 +11,6 @@ const App = () => {
       <hr />
       <Route path="/red" component={RedPage} />
       <Route path="/blue" component={BluePage} />
-      <Route path="/red" component={RedPage} />
-      <Route path="/blue" component={BluePage} />
     </div>
   );
 };
